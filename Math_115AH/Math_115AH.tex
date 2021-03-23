@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage{geometry, amsfonts, parskip}
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Math 115AH}
+\author{Max Smiley}
+\date{Winter 2021}
+\maketitle
+This is an honors, junior level linear algebra class I took at UCLA. There were three broad categories of the course: Vector Spaces, Linear Transformations, and Inner Product Spaces. In each section, I'll go over definitions, theorems, and some important proofs and corollaries in chronological order of the course. I'll also attempt to give extra commentary and applications to things I find interesting. This is an informal set of notes, mainly intended to be referenced by myself down the road.
+\clearpage
+
+\textbf{\Large Vector Spaces}
+\\\\
+\textbf{Def: }a \emph{field} is a set $F$ with two maps $+: F \times F \rightarrow F$ and $\cdot: F \times F \rightarrow F$ satisfying the following properties\\
+
+\begin{itemize}
+\item $\forall\ a, b, c \in F,\ (a + b) + c = a + (b + c)$
+\item $\forall\ a, b \in F,\ a + b = b + a$
+\item $\exists ^^21 \ 0 \in F,\ such\ that\ a + 0 = 0 + a\quad \forall\ a \in F$
+\item $\forall\ a \in F,\ \exists\ b \in F,\ such\ that\ a + b = b + a = 0.\ We\ write\ a = -b$
+\item $\forall\ a,b,c \in F,\ (a \cdot b) \cdot c = a \cdot (b \cdot c)$
+\item $\forall\ a,b \in F,\ a \cdot b = b \cdot a$
+\item $\exists ^^21 \ 1 \in F,\ such\ that\ 1 \cdot a = a \cdot 1 = a \quad \forall\ a \in F$
+\item $\forall\ a \neq 0\in F,\ \exists ^^21\ b\in F\ such\ that\ a \cdot b = b \cdot a = 1.\ We\ write\ a = b^{-1}$
+\item $\forall\ a,b,c \in F,\ a\ \cdot (b + c) = a \cdot b + a \cdot c$
+\end{itemize}
+
+This defines two operators on a set, addition and multiplication. Essentially, these rules break down as follows - associativity, commutativity, existence (and uniqueness) of inverses, and distributivity of addition and multiplication.\\
+
+A few examples of fields are the set of all rational numbers $\mathbb{Q}$, the set of all real numbers $\mathbb{R}$, and the set of all complex numbers $\mathbb{C}$. Note that the set of all integers $\mathbb{Z}$ does not form a field, as their multiplicative inverses are \emph{not} in the field.\\
+
+Note that we also made no mention of what these operations actually had to represent, only that they must follow those four rules. This allows for a greater degree of generality - the multiplication and addition operators don't necessarily have to be what we're used to them being. Defining the notion of a field is also useful, as if we can prove a statement is true about a field, we can apply it to \emph{any} set that fulfills this description. Namely, when we define vector spaces, we define them over a field, which allows us to prove theorems for the reals, complexes, or rationals to name a few. \\
+
+Though all of the fields I named in the previous paragraph were infinite sets, fields can be finite. Consider the following set, and tables of operations.\\
+
+$$F = \{0, 1\}$$
+
+\begin{center}
+\begin{tabular}{ c | c c }
+$+$ & 0 & 1 \\
+\hline
+0 & 0 & 1 \\
+1 & 1 & 0
+\end{tabular}
+\qquad \qquad \qquad
+\begin{tabular}{ c | c c }
+$\cdot$ & 0 & 1 \\
+\hline
+0 & 0 & 0 \\
+1 & 0 & 1
+\end{tabular}
+\end{center}
+This satisfies all of the field axioms.\\
+
+\textbf{Def: }a \emph{vector space} over a field F is a set V with two operations $+:V \times V \rightarrow V$ and $\cdot : F\times V \rightarrow V$ (referred to as vector addition and scalar multiplication) satisfying the following properties
+
+\begin{itemize}
+\item $\forall\ v_1, v_2, v_3 \in V,\ (v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)$
+\item $\forall\ v_1, v_2 \in V,\ v_1 + v_2 = v_2 + v_1$
+\item $\exists ^^21 \ 0 \in V,\ such\ that\ v + 0 = 0 + v\quad \forall\ v \in V$
+\item $\forall\ v \in V,\ \exists\ w \in V,\ such\ that\ v + w = w + v = 0.\ We\ write\ v = -w$
+\item $\forall\ v \in V,\ v \cdot 1 = 1 \cdot v = v$
+\item $\forall\ v \in V,\ and\ \alpha,\beta \in F,\ \alpha \cdot (\beta \cdot v) = (\alpha \cdot \beta) \cdot v$
+\item $\forall\ v \in V,\ and\ \alpha,\beta \in F,\ (\alpha + \beta) \cdot v = \alpha \cdot v + \beta \cdot v$
+\item $\forall\ v_1, v_2 \in V,\ and\ \alpha \in F,\ \alpha \cdot (v_1 + v_2) = \alpha \cdot v_1 + \alpha \cdot v_2$
+\end{itemize}
+These axioms looks suspiciously similar to the field axioms. In fact, \emph{any field is a vector space over itself}. By this construction, the vector space axioms are inherited by the field axioms. For example, the field $\mathbb{R}$ is a vector space over $\mathbb{R}$. To give an example of a vector space that's a bit more interesting, the set of 3 element vectors over the field $\mathbb{R}$ forms a vector space, denoted as $\mathbb{R}$$^3$. In general, the set of all n element vectors over the a field F form the vector space denoted as $F^n$.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
