@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{geometry, amsfonts, parskip}
+\usepackage{geometry, amsfonts, parskip, amssymb}
 \pagestyle{empty}
 
 \begin{document}
@@ -79,7 +79,7 @@ These axioms looks suspiciously similar to the field axioms. In fact, \emph{any 
 \end{itemize}
 \emph{Proof: }1) $\Rightarrow$ 2) by vector space axioms. 2) $\Rightarrow$ 3)  by definition. Now assume 3). Take $\alpha = 1$ to get $w_1 + w_2 \in W\ \forall\ w_1, w_2 \in W$. Take $\alpha = -1$ to get $w_2 - w_1 \in W\ \forall\ w_1, w_2 \in W$. Finally, take $w_2 = 0_V \in W$ to get $\alpha \cdot w_1 \in W\ \forall\ \alpha \in F$ and $w_1 \in W$. Thus, W is closed under addition and scalar multiplication, so it is a subspace, and so 3) $\Rightarrow$ 1).\\
 
-\textbf{Def: }let V be a vector space over a field F. A \emph{linear combination} of elements in V is a sum of multiples of elements of V. For example, $\alpha v_1 + \beta v_2 + \gamma v_3$ is a linear combination for $v_1,v_2,v_3 \in V$ and $\alpha, \beta, \gamma \in F$. A vector $v \in V$ is said to be a \emph{linear combination} if $\exists\ \alpha, \beta, \gamma \in F$ and $\exists\ v_1, v_2, v_3 \in V$ such that $v = \alpha v_1 + \beta v_2 + \gamma v_3$.\\
+\textbf{Def: }let V be a vector space over a field F. A \emph{linear combination} of elements in V is a sum of multiples of elements of V. For example, $\alpha v_1 + \beta v_2 + \gamma v_3$ is a linear combination for $v_1,v_2,v_3 \in V$ and $\alpha, \beta, \gamma \in F$. A vector $v \in V$ is said to be a \emph{linear combination} if $\exists$ scalars $\alpha_i \in F$ and $\exists\ v_i \in V$ such that $v = \sum_{i}^{}\alpha_i v_i$.\\
 
 \textbf{Def: }let V be a vector space over a field F, and $\beta =  \{ v_1 \dots v_n  \}$ a set of n vectors in V. The \emph{span} of $\beta$ is the set of all linear combinations of elements of $\beta$ with scalars from F.
 $$span(v_1,\dots v_n) = \sum_{i = 1}^{n}\alpha_i v_i \quad \forall\ \alpha_i \in F,\ \forall\ v_i \in V$$
@@ -87,11 +87,21 @@ Note that if $v_1,\dots v_n \in V$, then $span(v_1,\dots v_n)$ is a subspace of 
 
 \textbf{Def: }let $W_1, W_2 \subseteq V$ be subspaces. We define the direct sum $$W_1 + W_2 = \{ w_1 + w_2\ :\ w_1 \in W_1,\ w_2 \in W_2 \} = span(W_1 \cup W_2)$$\\
 More generally, if $W_i \subseteq V$ are subspaces indexed by I, we define$$\sum_{I}W_i = span\Bigg(\bigcup_{I}W_i \Bigg)$$\\
-This is a subspace, due to the way in which we defined direct sums. Note that if we had defined $+$ by taking the union of the two sets, this would not form a subspace, as the unions of two subspaces are not necessarily closed under addition between the two elements.
+This is a subspace, due to the way in which we defined span. Note that if we had defined $+$ by taking the union of the two sets, this would not form a subspace, as the unions of two subspaces are not necessarily closed under addition between the two elements.
 
-\textbf{Def: }a set of vectors in a vector space V is \emph{linearly independent} if $$\sum_{i = 1}^{n}\alpha_i v_i = 0 \Rightarrow \alpha_i = 0\ \forall \alpha_i \in F,\ \forall v_i \in V$$
-Likewise, a set of vectors is \emph{linearly dependent} if $$\exists\ \alpha_i \neq 0\ such\ that\ \sum_{i = 1}^{n}\alpha_i v_i = 0\ is\ true$$\\
-Linear (in)dependence is a big deal in linear algebra. Without diving into the mathematics of it (yet), linearly dependent vectors mean that some vector in the set can be expressed by other vectors in the set. In a sense, there is some repeated information. In contrast, each newly added linearly independent vector to a set adds new information.
+\textbf{Def: }a set of vectors in a vector space V is \emph{linearly independent} if $$\sum_{i = 1}^{n}\alpha_i v_i = 0 \Rightarrow \alpha_i = 0\ \forall \alpha_i \in F,\ \forall v_i \in V\ for\ not\ all\ v_i = 0$$
+Likewise, a set of vectors is \emph{linearly dependent} if $$\exists\ \alpha_i \neq 0\ such\ that\ \sum_{i = 1}^{n}\alpha_i v_i = 0\ is\ true\ for\ not\ all\ v_i = 0$$\\
+Linear (in)dependence is a big deal in linear algebra. Without diving into the mathematics of it (yet), linearly dependent vectors mean that some vector in the set can be expressed by other vectors in the set. In a sense, there is some repeated information. In contrast, each newly added linearly independent vector to a set adds new information.\\
+
+\textbf{Toss In Theorem: }\emph{Let V be a vector space over F, and $\varnothing \neq S \subseteq V$ be a linearly independent subset of V. Suppose $v \in V$ is not in the span of S. Then $S \cup \{ v \}$ is linearly independent.}\\\\
+\emph{Proof: }Suppose $S\ \cup\ \{ v \}$ is linearly dependent. Then $\exists\ v_1,\dots v_n \in S\ and\ \alpha_i,\dots \alpha_n \in F$ not all zero such that $$\alpha_1 v_1 + \dots + \alpha_n v_n + \alpha v= 0$$\\
+Suppose $\alpha = 0$. Then our equation reads $\alpha_1 v_1 + \dots\ + \alpha_n v_n = 0$ for not all $\alpha_i = 0$. However, this contradicts the linear independence of S.\\
+
+Now suppose $\alpha \neq 0$. Then $\alpha^{-1}$ exists, so we can multiply both sides and rearrange to arrive at $$v =  -\alpha^{-1} \alpha_1 v_1 - \dots\ - \alpha^{-1} \alpha_n v_n$$\\
+The above is simply a linear combination of elements of S, so it is in the span of S. However, we initially assumed $v \notin span(S)$, and so we have arrived at a contradiction. Since all scenarios lead to a contradiction, we can conclude what we had assumed is false, proving that $S \cup \{ v \}$ is linearly independent.\\
+
+\textbf{Def: }a \emph{basis} for a vector space V is a set of linearly independent vectors in V that spans V.\\\\
+\textbf{Def: }for a given basis $\beta = \{ v_1, \dots v_n \}$ of a vector space V, the \emph{coordinates} refer to the scalars associated with the basis vectors. For example, an arbitrary $v \in V$ has representation $$v = \alpha_1 v_1 + \dots + \alpha_n v_n \quad \forall\ \alpha_i \in F$$\\as $\beta$ spans V. $\alpha_i$ is referred to as the "i'th" coordinate of $\beta$, associated with the basis vector $v_i$.
 
 \end{document}
 
