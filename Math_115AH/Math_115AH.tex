@@ -101,7 +101,37 @@ Now suppose $\alpha \neq 0$. Then $\alpha^{-1}$ exists, so we can multiply both 
 The above is simply a linear combination of elements of S, so it is in the span of S. However, we initially assumed $v \notin span(S)$, and so we have arrived at a contradiction. Since all scenarios lead to a contradiction, we can conclude what we had assumed is false, proving that $S \cup \{ v \}$ is linearly independent.\\
 
 \textbf{Def: }a \emph{basis} for a vector space V is a set of linearly independent vectors in V that spans V.\\\\
-\textbf{Def: }for a given basis $\beta = \{ v_1, \dots v_n \}$ of a vector space V, the \emph{coordinates} refer to the scalars associated with the basis vectors. For example, an arbitrary $v \in V$ has representation $$v = \alpha_1 v_1 + \dots + \alpha_n v_n \quad \forall\ \alpha_i \in F$$\\as $\beta$ spans V. $\alpha_i$ is referred to as the "i'th" coordinate of $\beta$, associated with the basis vector $v_i$.
+\textbf{Def: }for a given basis $\beta = \{ v_1, \dots v_n \}$ of a vector space V, the \emph{coordinates} refer to the scalars associated with the basis vectors. For example, an arbitrary $v \in V$ has representation $$v = \alpha_1 v_1 + \dots + \alpha_n v_n \quad \forall\ \alpha_i \in F$$\\as $\beta$ spans V. $\alpha_i$ is referred to as the "i'th" coordinate of $\beta$, associated with the basis vector $v_i$. \\
+
+\textbf{Coordinate Theorem: }\emph{for any given basis $\beta = \{ v_1,\dots v_n\}$ the coordinates associated with a given element are unique}\\
+
+\emph{Proof: }Suppose we have two equivalent vectors with representations $$v = \alpha_1 v_1 + \dots + \alpha_n v_n \ and\ v = \beta_1 v_1 + \dots + \beta_n v_n \Rightarrow (\alpha_1 - \beta_1) v_1 + \dots + (\alpha_n - \beta_n) v_n = 0$$
+However, $\beta$ is linearly independent by definition of a basis, implying $\alpha_i - \beta_i = 0\ \forall i$
+$\Rightarrow \alpha_i = \beta_i\ \forall i$ and so the coordinates are unique.\\
+
+\textbf{Toss Out Theorem: }\emph{Suppose $v \in span(v_1,\dots v_n)$. Then $span(v, v_1,\dots v_n) = span(v_1 \dots v_n)$}. In plain text, we can "toss out" a linearly dependent vector from a set to maintain the same span.\\
+
+\emph{Proof: }Let $W = span(v, v_1,\dots v_n)$ and $W' = span(v_1,\dots v_n)$. Clearly, $W' \subseteq W$. Now suppose $w \in W$. Then $w = \alpha v + \alpha_1 v_1 + \dots \alpha_n v_n$ for some $\alpha, \alpha_1 \dots \alpha_n \in F$. But since $v \in W',\ v = \beta_1 v_1 + \dots + \beta_n v_n$ for some $\beta_1,\dots \beta_n \in F$
+$$\Rightarrow w = \alpha (\beta_1 v_1 + \dots + \beta_n v_n) + \alpha_1 v_1 + \dots + \alpha_n v_n$$
+$$\Rightarrow w = (\alpha \beta_1 + \alpha_1) v_1 + \dots + (\alpha \beta_n + \alpha_n) v_n$$\\
+Since $w$ can be represented purely as a linear combination of elements in $W'$, $$\Rightarrow w \in W' \Rightarrow W \subseteq W' \Rightarrow W = W'$$
+
+\textbf{Replacement Theorem: }\emph{Let V be a vector space over a field F with a given basis $\beta = \{ v_1,\dots v_n \}$. Suppose that $v \in V$ is a linear combination of the basis vectors, with some coordinate $\alpha_i \neq 0$. Then $\beta ' = \{ v_1,\dots v_{i - 1}, v, v_{i + 1},\dots v_n \}$ is also a basis for V.} In plain text, if we find some vector with a nonzero component along the \emph{i'th} basis vector, we can form a new basis by replacing that basis vector with our new one.\\
+
+\emph{Proof: }Without loss of generality, assume $i = 1$. The $\alpha_i^{-1}$ exists, and so for an arbitrary $v \in V,\ v = \alpha_1 v_1 + \dots + \alpha_n v_n$, we can rewrite this to conclude $$v_1 = \alpha_1^{-1} v - \alpha_1^{-1} \alpha_2 v_2 - \dots - \alpha_1^{-1} \alpha_n v_n \Rightarrow v_1 \in span(v, v_2,\dots v_n)$$
+Since v is simply a linear combination of $v_1, \dots v_n$, it is evident that $span(v_1,\dots v_n) = span(v, v_1, \dots v_n).$ However, since $v_1 \in span(v,v_2,\dots v_n)$, by the Toss Out Theorem, $span(v, v_1, \dots v_n) = span(v,v_2,\dots, v_n)$. Hence, $span(\beta) = span(\beta')$, and so $\beta'$ spans V. Thus, it suffices to show $\beta'$ is a basis if it is linearly independent. By way of contradiction, assume $\beta'$ is linearly dependent.\\
+$\Rightarrow \exists\ \beta, \beta_2, \dots \beta_n $ not all zero such that $\beta v + \beta_2 v_2 + \dots + \beta_n v_n = 0$.\\
+
+Case 1: $\beta = 0$\\
+Then this implies $\beta_2 v_2 + \dots + \beta_n v_n = 0$ for $\beta_2 \dots \beta_n$ not all equal to zero. However, this contradicts their linear independence, as $\beta = \{ v_1 \dots v_n\}$ is linearly independent.\\
+
+Case 2: $\beta \neq 0$\\
+Then $\beta^{-1}$ exists, so we can multiply both sides by this, solve for $v$, and set it equal to our original equation for v.
+$$v = 0 \cdot v_1 -\beta^{-1} \beta_2 v_2 - \dots - \beta^{-1} \beta_n v_n = \alpha_1 v_1 + \dots + \alpha_n v_n$$\\
+By the coordinate theorem, $\alpha_1 = 0$. However, this is exactly the $\alpha_i$ we had assumed to be nonzero, so we have arrived at a contradiction. In either case, the assumption that $\beta'$ is linearly dependent leads to a contradiction, and so $\beta'$ is linearly independent.
+\clearpage
+
+
 
 \end{document}
 
