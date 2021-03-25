@@ -162,6 +162,33 @@ By definition, a basis $\beta$ must span V and be linearly independent. Then, by
 
 This is what we expected, after all it would be disastrous if the dimension of a vector space depended on what basis we chose. Since we've also concluded that a basis is simply a minimal spanning set, we can conclude that every vector space has a basis. Evidently, there is an intimate relationship between bases and vector spaces. In fact, when we talk about linear transformations, much of our work will be describing what the linear transformations does to the basis elements, to give an example of how useful describing things in terms of their bases are.
 \clearpage
+\textbf{Extension Theorem: }\emph{Let V be a finite-dimensional vector space over a field F, and $W \subseteq V$ a subspace of V. Then any linearly independent subset of W is finite, and part of a basis for W.} It also follows that any linearly independent subset of V may be extended to a basis for V.\\
+
+\emph{Proof: }By the main theorem, any linearly independent subset $\beta \subseteq W$ has at most $dim(W)$ linearly independent vectors. In particular, $dim(span(\beta)) \leq dim(W)$. If $dim(span(\beta)) = dim(W)$, we are done, as any linearly independent subset of a vector space with cardinality equal to the dimension of the given vector space forms a basis for that vector space. If $dim(span(\beta)) < dim(W)$, by the Toss In Theorem, we can add in some vector $v \in V$ where $v \notin span(\beta)$ such that $\beta \cup \{ v \}$ is linearly independent, and our new set $\beta'$ has dimension $|\beta| + 1$. Since V is finite dimensional, this process will eventually terminate when $dim(\beta') = dim(W)$, in which case $\beta'$ will be a basis for $W$ by the Main Theorem.\\
+
+\textbf{Counting Theorem: }\emph{Let V be a vector space over F, with $W_1, W_2 \subseteq V$ finite-dimensional subsets of V. Then}
+\begin{itemize}
+\item $W_1 \cap W_2$ is a finite-dimensional vector space
+\item $W_1 + W_2$ is a finite-dimensional vector space
+\item $dim(W_1) + dim(W_2) = dim(W_1 + W_2) + dim(W_1 \cap W_2)$
+\end{itemize}
+\emph{Proof: }$W_1 \cap W_2 \subseteq W$, so it is finite-dimensional since W is finite-dimensional. Moreover, it is a vector space, as $\forall\ x, y \in W_1 \cap W_2$ and $\forall\ c \in F$
+$$\Rightarrow x \in W_1, W_2\ and\ y \in W_1, W_2\Rightarrow cx + y \in W_1, W_2\ since\ W_1\ and\ W_2\ are\ subspaces$$  
+If $\beta_1, \beta_2$ are bases for $W_1, W_2$ respectively, then by definition, $W_1 + W_2 = span(\beta_1 \cup \beta_2)$. Since $\beta_1, \beta_2$ are finite, then $W_1 + W_2$ is finite dimensional. Moreover, $\beta_1 \cup \beta_2$ can be reduces to a basis by the Toss Out Theorem, and so $W_1 + W_2$ is also a vector space.\\
+
+Now suppose $\beta$ is a basis for $W_1 \cup W_2$. By the Extension Theorem, we can extend this to a basis for $W_1$ and $W_2$, denoted as $\beta_1,\beta_2$ respectively. We want to claim that $dim(W_1 + W_2) = dim(span(\beta_1 \cup \beta_2))$. To do so, we simply need to show $\beta_1 \cup \beta_2$ is linearly independent. By way of contradiction, assume $\beta_1 \cup \beta_2$ is linearly dependent. Note that given a general representation of a vector in V for our basis elements, it equaling zero implies not all coefficients associated with $\beta$ and $\beta_2$ are zero, as this would violate the linear independence of $\beta_1$. Similarly, not all coefficients regarding $\beta$ and $\beta_2$ are equal to zero. Then, if our basis vectors are $$\beta = \{ v_1, \dots v_n \}, \beta_1 = \{ y_1, \dots y_m \}, \beta_2 = \{ z_1, \dots z_r \}\ with\ scalars\ \alpha_1, \dots \alpha_n, \beta_1, \dots \beta_m, \gamma_1, \dots \gamma_r \in F$$
+$$\Rightarrow v = \alpha_1 v_1 + \dots + \alpha_n v_n + \beta_1 y_1 + \dots + \beta_m y_m + \gamma_1 z_1 + \dots + \gamma_r z_r = 0$$
+Without loss of generality, assume $\gamma_1 \neq 0$. Note our representations of z are
+$$0 \neq z = \gamma_1 z_1 + \dots + \gamma_r z_r \in span(\beta_2) = W_2$$
+$$0 \neq z = -\alpha_1 v_1 - \dots - \alpha_n v_n - \beta_1 y_1 - \dots - \beta_m y_m \in span(\beta_2) = W_2$$
+$$\Rightarrow \gamma_1 z_1 + \dots + \gamma_r z_r = -\alpha_1 v_1 - \dots - \alpha_n v_n - \beta_1 y_1 - \dots - \beta_m y_m$$
+$$\Rightarrow \exists\ \delta_1, \dots \delta_n\ such\ that\ 0 \neq z = \delta_1 v_1 + \dots + \delta_n v_n$$
+$$\Rightarrow \delta_1 v_1 + \dots + \delta_n v_n + 0 \cdot z_1 + \dots + 0 \cdot z_r = \gamma_1 z_1 + \dots \gamma_r z_r$$
+But, by the coordinate theorem we get $\gamma_1 = 0$, when we had assumed $\gamma_1 \neq 0$! Thus, we have arrived at a contradiction, and so $\beta_1 \cup \beta_2$ is linearly independent. Thus, $dim(W_1 + W_2) = dim(span(\beta_1 \cup \beta_2)$
+$$ \Rightarrow dim (W_1 + W_2) = |\beta_1| + |\beta_2| - |\beta_1 \cap \beta_2|$$
+$$ \Rightarrow dim(W_1 + W_2) = dim(W_1) + dim(W_2) - dim(W_1 \cap W_2)$$
+
+At this point, we have fleshed out the concepts we need to describe vector spaces, and proved important theorems that we'll build upon in the next section. We defined fields, then built upon them with vector spaces. We related the notion of linear independence, span, basis, and dimension to each other, and rigorously proved ideas we may have taken for granted in our first pass at linear algebra.
 
 \end{document}
 
