@@ -8,7 +8,7 @@
 \author{Max Smiley}
 \date{Winter 2021}
 \maketitle
-This is an honors, junior level linear algebra class I took at UCLA. There were three broad categories of the course: Vector Spaces, Linear Transformations, and Inner Product Spaces. In each section, I'll go over definitions, theorems, and some important proofs and corollaries in chronological order of the course. I'll also attempt to give extra commentary and applications to things I find interesting. This is an informal set of notes, mainly intended to be referenced by myself down the road.
+This is an honors, introductory course to abstract linear algebra that I took at UCLA. There were three broad categories of the course: Vector Spaces, Linear Transformations, and Inner Product Spaces. In each section, I'll go over definitions, theorems, and some important proofs and corollaries in chronological order of the course. I'll also attempt to give extra commentary and applications to things I find interesting. This is an informal set of notes, mainly intended to be referenced by myself down the road.
 \clearpage
 
 \textbf{\Large Vector Spaces}
@@ -32,7 +32,7 @@ This defines two operators on a set, addition and multiplication. Essentially, t
 
 A few examples of fields are the set of all rational numbers $\mathbb{Q}$, the set of all real numbers $\mathbb{R}$, and the set of all complex numbers $\mathbb{C}$. Note that the set of all integers $\mathbb{Z}$ does not form a field, as their multiplicative inverses are \emph{not} in the field.\\
 
-Note that we also made no mention of what these operations actually had to represent, only that they must follow those four rules. This allows for a greater degree of generality - the multiplication and addition operators don't necessarily have to be what we're used to them being. Defining the notion of a field is also useful, as if we can prove a statement is true about a field, we can apply it to \emph{any} set that fulfills this description. Namely, when we define vector spaces, we define them over a field, which allows us to prove theorems for the reals, complexes, or rationals to name a few. \\
+Note that we also made no mention of what these operations actually have to represent, only that they must follow those four rules. This allows for a greater degree of generality - the multiplication and addition operators don't necessarily have to be what we're used to them being. Defining the notion of a field is also useful, as if we can prove a statement is true about a field, we can apply it to \emph{any} set that fulfills this description. Namely, when we define vector spaces, we define them over a field, which allows us to prove theorems for the reals, complexes, or rationals to name a few. \\
 
 Though all of the fields I named in the previous paragraph were infinite sets, fields can be finite. Consider the following set, and tables of operations.\\
 
@@ -79,15 +79,18 @@ These axioms looks suspiciously similar to the field axioms. In fact, \emph{any 
 \end{itemize}
 \emph{Proof: }1) $\Rightarrow$ 2) by vector space axioms. 2) $\Rightarrow$ 3)  by definition. Now assume 3). Take $\alpha = 1$ to get $w_1 + w_2 \in W\ \forall\ w_1, w_2 \in W$. Take $\alpha = -1$ to get $w_2 - w_1 \in W\ \forall\ w_1, w_2 \in W$. Finally, take $w_2 = 0_V \in W$ to get $\alpha \cdot w_1 \in W\ \forall\ \alpha \in F$ and $w_1 \in W$. Thus, W is closed under addition and scalar multiplication, so it is a subspace, and so 3) $\Rightarrow$ 1).\\
 
-\textbf{Def: }let V be a vector space over a field F. A \emph{linear combination} of elements in V is a sum of multiples of elements of V. For example, $\alpha v_1 + \beta v_2 + \gamma v_3$ is a linear combination for $v_1,v_2,v_3 \in V$ and $\alpha, \beta, \gamma \in F$. A vector $v \in V$ is said to be a \emph{linear combination} if $\exists$ scalars $\alpha_i \in F$ and $\exists\ v_i \in V$ such that $v = \sum_{i}^{}\alpha_i v_i$.\\
+\textbf{Def: }let V be a vector space over a field F. A \emph{linear combination} of elements in V is a sum of multiples of elements of V. For example, $\alpha v_1 + \beta v_2 + \gamma v_3$ is a linear combination for $v_1,v_2,v_3 \in V$ and $\alpha, \beta, \gamma \in F$. A vector $v \in V$ is said to be a \emph{linear combination} of vectors $v_i \in V$ if $\exists$ scalars $\alpha_i \in F$ such that $v = \sum_{i}^{}\alpha_i v_i$.\\
 
 \textbf{Def: }let V be a vector space over a field F, and $\beta =  \{ v_1 \dots v_n  \}$ a set of n vectors in V. The \emph{span} of $\beta$ is the set of all linear combinations of elements of $\beta$ with scalars from F.
-$$span(v_1,\dots v_n) = \sum_{i = 1}^{n}\alpha_i v_i \quad \forall\ \alpha_i \in F,\ \forall\ v_i \in V$$
+$$span(v_1,\dots v_n) = \sum_{i = 1}^{n}\alpha_i v_i \quad \forall\ \alpha_i \in F$$
 Note that if $v_1,\dots v_n \in V$, then $span(v_1,\dots v_n)$ is a subspace of V. It is a subset, and is closed under addition and scalar multiplication.\\
 
-\textbf{Def: }let $W_1, W_2 \subseteq V$ be subspaces. We define the direct sum $$W_1 + W_2 = \{ w_1 + w_2\ :\ w_1 \in W_1,\ w_2 \in W_2 \} = span(W_1 \cup W_2)$$\\
+\textbf{Def: }let $W_1, W_2 \subseteq V$ be subspaces. We define the sum $$W_1 + W_2 = \{ w_1 + w_2\ :\ w_1 \in W_1,\ w_2 \in W_2 \} = span(W_1 \cup W_2)$$\\
 More generally, if $W_i \subseteq V$ are subspaces indexed by I, we define$$\sum_{I}W_i = span\Bigg(\bigcup_{I}W_i \Bigg)$$\\
 This is a subspace, due to the way in which we defined span. Note that if we had defined $+$ by taking the union of the two sets, this would not form a subspace, as the unions of two subspaces are not necessarily closed under addition between the two elements.
+
+\textbf{Def: }let $W_1, W_2 \subseteq V$ be subspaces. We define the direct sum $W_1 \oplus W_2$ as $W_1 + W_2$ if $W_1 \cap W_2 = \{ 0 \}$
+More generally, if $W_i \subseteq V$ are subspaces indexed by I, we write$$\bigoplus_{I}W_i = \sum_{I}W_i \quad if \quad W_j \cap \sum_{I \setminus \{ j \}}W_i = \{ 0 \}\ \forall\j \in I$$
 
 \textbf{Def: }a set of vectors in a vector space V is \emph{linearly independent} if $$\sum_{i = 1}^{n}\alpha_i v_i = 0 \Rightarrow \alpha_i = 0\ \forall \alpha_i \in F,\ \forall v_i \in V\ for\ not\ all\ v_i = 0$$
 Likewise, a set of vectors is \emph{linearly dependent} if $$\exists\ \alpha_i \neq 0\ such\ that\ \sum_{i = 1}^{n}\alpha_i v_i = 0\ is\ true\ for\ not\ all\ v_i = 0$$\\
@@ -129,7 +132,7 @@ Case 2: $\beta \neq 0$\\
 Then $\beta^{-1}$ exists, so we can multiply both sides by this, solve for $v$, and set it equal to our original equation for v.
 $$v = 0 \cdot v_1 -\beta^{-1} \beta_2 v_2 - \dots - \beta^{-1} \beta_n v_n = \alpha_1 v_1 + \dots + \alpha_n v_n$$\\
 By the coordinate theorem, $\alpha_1 = 0$. However, this is exactly the $\alpha_i$ we had assumed to be nonzero, so we have arrived at a contradiction. In either case, the assumption that $\beta'$ is linearly dependent leads to a contradiction, and so $\beta'$ is linearly independent.
-\clearpage
+
 \textbf{Main Theorem: }\emph{Suppose V is a vector space over a field F with $V = span(v_1,\dots v_n)$. Then any linearly independent subset in V has at most n elements.}\\
 
 \emph{Proof: }by the Toss Out Theorem, we can toss out linearly dependent vectors from this set without affecting the span, until we have arrived at a linearly independent set. Since this set spans V and is linearly independent, it is a basis for V. Assume $\beta = \{ v_1, \dots, v_n \}$ is a basis for V. Now suppose $\{ w_1, \dots w_m \} \subseteq V$ is a linearly independent set. We must show $m \leq n$. We claim it suffices to show that for each $k \leq n$, $\{ w_1, \dots w_k, v_{k + 1}, \dots v_n \}$ is a basis. If $k < n$, then $m < n$, and so the theorem is proved. If $k = n$, then $\{ w_1, \dots w_n \}$ is a basis, as any $w_{k + c}$ for $c > 0$ implies $w_{k + c}$ can be written as a linear combination of $\{ w_1, \dots, w_n \}$, i.e. the $w$'s are not linearly independent, contradicting the claim that the $w$'s form a basis.\\
@@ -143,7 +146,7 @@ Assume $P(n - 1)$, i.e. for some $k < n$, $\{ w_1, \dots w_k, v_{k + 1}, \dots v
 \textbf{Def: }the \emph{dimension} of a vector space V is the cardinality of a basis for V. This may be finite or infinite dimensional.\\
 
 Many people, upon first coming to grips with the notion of an infinite dimensional vector space, are rightly confused. \emph{Aren't most vector spaces infinite sets?} This is true, but the dimension of a vector space represents something different than the mere size of the vector space itself. It represents \emph{how many basis vectors we need} in order to describe an arbitrary object in V through linear combination.
-\clearpage
+
 For example, consider $\mathbb{R}^2$, the set of all $(x, y)$ such that $x \in \mathbb{R}$ and $y \in \mathbb{R}$, or equivalently, $\mathbb{R} \times \mathbb{R}$. This is a finite dimensional vector space, as there exists a basis with only two elements, $(1, 0)$ and $(0, 1)$ to name an example.\\
 
 In contrast, consider the set of all polynomials with coefficients over a field, denoted as $F[t]$, with an arbitrary element having representation $\alpha_0 + \alpha_1 t + \alpha_2 t^2 + \dots + \alpha_n t^n$ for $\alpha_0, \dots \alpha_n \in F$. This is an infinite dimensional vector space, since the monomials generated by $t^n$ form basis for $F[t]$, but since $n \in \mathbb{N}$, $n$ is not bounded by any finite number (the span of $t^n$ is evident, and their linear independence is a result from differential equations). It is important to make the distinction between infinite and finite dimensional vector spaces, as some theorems only hold in the finite dimensional case.\\
@@ -161,7 +164,7 @@ The theorem states that a maximally linearly independent set in V is a basis. By
 By definition, a basis $\beta$ must span V and be linearly independent. Then, by the previous corollary, $|\beta| \geq dim(V)$, and $|\beta| \leq dim(V)$, or $|\beta| = dim(V)$. Thus, for a given V, all bases have the same cardinality, and so $|\beta_1| = |\beta_2|$\\
 
 This is what we expected, after all it would be disastrous if the dimension of a vector space depended on what basis we chose. Since we've also concluded that a basis is simply a minimal spanning set, we can conclude that every vector space has a basis. Evidently, there is an intimate relationship between bases and vector spaces. In fact, when we talk about linear transformations, much of our work will be describing what the linear transformations does to the basis elements, to give an example of how useful describing things in terms of their bases are.
-\clearpage
+
 \textbf{Extension Theorem: }\emph{Let V be a finite-dimensional vector space over a field F, and $W \subseteq V$ a subspace of V. Then any linearly independent subset of W is finite, and part of a basis for W.} It also follows that any linearly independent subset of V may be extended to a basis for V.\\
 
 \emph{Proof: }By the main theorem, any linearly independent subset $\beta \subseteq W$ has at most $dim(W)$ linearly independent vectors. In particular, $dim(span(\beta)) \leq dim(W)$. If $dim(span(\beta)) = dim(W)$, we are done, as any linearly independent subset of a vector space with cardinality equal to the dimension of the given vector space forms a basis for that vector space. If $dim(span(\beta)) < dim(W)$, by the Toss In Theorem, we can add in some vector $v \in V$ where $v \notin span(\beta)$ such that $\beta \cup \{ v \}$ is linearly independent, and our new set $\beta'$ has dimension $|\beta| + 1$. Since V is finite dimensional, this process will eventually terminate when $dim(\beta') = dim(W)$, in which case $\beta'$ will be a basis for $W$ by the Main Theorem.\\
@@ -189,6 +192,7 @@ $$ \Rightarrow dim (W_1 + W_2) = |\beta_1| + |\beta_2| - |\beta_1 \cap \beta_2|$
 $$ \Rightarrow dim(W_1 + W_2) = dim(W_1) + dim(W_2) - dim(W_1 \cap W_2)$$
 
 At this point, we have fleshed out the concepts we need to describe vector spaces, and proved important theorems that we'll build upon in the next section. We defined fields, then built upon them with vector spaces. We related the notion of linear independence, span, basis, and dimension to each other, and rigorously proved ideas we may have taken for granted in our first pass at linear algebra.
+\clearpage
 
 \end{document}
 
