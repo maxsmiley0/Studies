@@ -246,7 +246,45 @@ $$T^{-1}(c w_1 + w_2) = T^{-1}(cT(v_1) + T(v_2)) = T^{-1}(T(c v_1 + v_2))$$
 $$T^{-1}(T(c v_1 + v_2)) = c v_1 + v_2 = c T^{-1}(v_1) + T^{-1}(w_2)$$
 Since $T^{-1}(c w_1 + w_2) = c T^{-1}(w_1) + T^{-1}(w_2)$, $T^{-1}$ is linear.\\
 
+\textbf{Monomorphism Theorem: }\emph{Let $T: V \rightarrow W$ be a linear transformation, for $V$ and $W$ vector spaces over a field $F$. Then the following are equivalent.}
+\begin{itemize}
+\item $T$ is a monomorphism
+\item $T$ takes linearly independent sets to linearly independent sets
+\item $ker(T) = \{ 0 \}$
+\item $dim(ker(T)) = 0$
+\end{itemize}
+\emph{Proof: }Let $T$ be a monomorphism. Let $\{ v_1, \dots v_n \}$ be an arbitrary, linearly independent set in V. Suppose, by way of contradiction, that $\{ T(v_1), \dots T(v_n) \}$ is linearly dependent. Then $\exists \alpha_i \neq 0$ such that $\alpha_1 T(v_1) + \dots + \alpha_n T(v_n) = 0$ for $\alpha_1, \dots \alpha_n \in F$. By linearity, $\alpha_1 T(v_1) + \dots + \alpha_n + T(v_n) = 0 \Rightarrow T(\alpha_1 v_1 + \dots + \alpha_n v_n) = 0$. Since $T$ is a monomorphism, $\alpha_1 v_1 + \dots + \alpha_n v_n$ is the unique element that maps to $0$. Moreover, as $T$ is a linear transformation, $T(0) = 0 \Rightarrow \alpha_1 v_1 + \dots + \alpha_n v_n = 0$. However, since $\{ v_1, \dots v_n \}$ is linearly independent, it implies $\alpha_i = 0\ \forall i$, which violates our assumption. Thus, $\{ T(v_1), \dots T(v_n) \}$ is linearly independent, and so $1) \Rightarrow 2)$ is proved.\\
 
+Now assume $2)$. Suppose, by way of contradiction that there exists some nonzero vector $v \in ker(T)$. Since $\{ v \}$ is linearly independent, $\{ T(v) \}$ must be too. However, $T(v) = 0$, which is linearly dependent. With this contradiction, we have shown $2) \Rightarrow 3)$. \\
+ 
+$3) \Leftrightarrow 4)$ is immediate. \\
+ 
+Suppose $ker(T) = \{ 0 \}$. Let $v_1, v_2 \in V$, such that $T(v_1) = T(v_2)$. Rearranging, we arrive at $T(v_1 - v_2) = 0 \Rightarrow v_1 - v_2 = 0 \Rightarrow v_1 = v_2$. Thus, $T$ is an injection, ergo $T$ is a monomorphism. Hence, $3) \Rightarrow 1)$ is proved.\\
+ 
+ 
+\textbf{Isomorphism Theorem: }\emph{Let $T: V \rightarrow W$ be a linear transformation, for V and W finite dimensional vector spaces over a field F with $n = dim(V) = dim(W)$. Then the following are equivalent}
+\begin{itemize}
+\item $T$ is an isomorphism
+\item $T$ is a monomorphism
+\item $T$ is an epimorphism
+\item If $\beta = \{ v_1, \dots v_n \}$ is a basis for $V$, then $\beta' = \{ T(v_1), \dots T(v_n) \}$ is a basis for $W$
+\item $\exists$ a basis for $V$ such that T takes it to a basis for $W$
+\end{itemize}
+$1) \Rightarrow 2)$ By definition, an isomorphism is a monomorphism.\\
+
+$2) \Rightarrow 3)$ By the Dimension Theorem, $dim(V) = dim(im(T)) + dim(ker(T))$. Since $T$ is a monomorphism, by the Monomorphism Theorem, $dim(ker(T)) = 0$, and so $dim(im(T)) = dim(V) = dim(W)$. Thus, $T$ is an epimorphism.\\
+
+$3) \Rightarrow 2)$ As $T$ is an epimorphism, $dim(V) = dim(W)$. By the Dimension Theorem, $dim(im(T)) + dim(ker(T)) = dim(V) \Rightarrow dim(ker(T)) = 0$. By the Monomorphism Theorem, $T$ is a monomorphism.\\
+
+$3) \Rightarrow 1)$ If $T$ is an epimorphism, we have shown this implies it is a monomorphism. Thus, it is an isomorphism.\\
+
+$2) \Rightarrow 4)$ By the Monomorphism Theorem, $\beta'$ is linearly independent. By the Main Theorem, any $n$ sized set of linearly independent vectors in an $n$ dimensional vector space forms a basis for that vector space, thus $\beta'$ is a basis for $W$.\\
+
+$4) \Rightarrow 5)$ By the Main Theorem, every vector space has a basis, so 5) immediately follows from 4).\\
+
+$5) \Rightarrow 3)$ Let $\beta = \{ v_1, \dots v_n \}$ be a basis for $V$ such that $\beta' = \{ T(v_1), \dots T(v_n) \}$ is a basis for $W$. Thus, $\beta'$ spans $W$, and therefore $T$ is an epimorphism.\\
+
+Note: it is a strong condition that $V$ and $W$ must be finite dimensional. The theorem does not hold unless this is true.
 
 \end{document}
 
