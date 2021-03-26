@@ -220,6 +220,34 @@ An example of a surjective function is $f: \mathbb{R} \rightarrow \mathbb{R}$ by
 
 \textbf{Def: }a \emph{bijection} is a function $f: X \rightarrow Y$ such that $f$ is an injection and a surjection. If $f$ is a \emph{bijection}, then each $x \in X$ is associated with a unique $y \in Y$, and each $y \in Y$ is associated with a unique $x \in X$. Thus, $|X| = |Y|$. Additionally, we can define a new map $f^{-1}: Y \rightarrow X$ by $y \mapsto x$ if $f(x) = y$.\\
 
+\textbf{Dimension Theorem: }\emph{Let V and W be finite dimensional vector spaces over a field F. Let $T: V \rightarrow W$ be a linear transformation. Then $dim(V) = dim(im(T)) + dim(ker(T)).$}\\
+
+\emph{Proof: }Let $dim(V) = n$. Suppose $\beta_0 = \{ v_1, \dots v_m \}$ is a basis for $ker(T)$. Since $ker(T)$ is a subspace of $V$, by the Extension Theorem, we can extend it to a basis $\beta = \{ v_1, \dots v_n \}$ for $V$ (for $m \leq n$). If we can show $\beta' = \{ Tv_{m + 1}, \dots Tv_{n}\}$ is a basis for $im(T)$, the theorem will have been proved, as it implies $|\beta| + |\beta'| = n \Rightarrow dim(im(T) + dim(ker(T)) = dim(V)$.\\
+
+To show $\beta'$ is a basis for $im(T)$, we must show span and linear independence. Suppose $w \in im(T)$ is an arbitrary element of the image. Then $\exists v \in V$ such that $T(v) = w$. Since $\beta$ is a basis for V, we have $v = \alpha_1 v_1 + \dots + \alpha_n v_n$ for some $\alpha_1, \dots \alpha_n \in F$. Then $w = T(\alpha_1 + v_1 + \dots + \alpha_n) = \alpha_1 T(v_1) + \dots + \alpha_n T(v_n)$. However, since the $v_i$'s up to $v_m$ are in $ker(T)$ (since they are in $\beta_0$), then $w = \alpha_{m + 1} T(v_{m + 1}) + \dots + \alpha_n T(v_n)$, and thus $\beta'$ spans $im(T)$. Now consider $\alpha_{m + 1} T(v_{m + 1}) + \dots + \alpha_n T(v_n) = 0$.
+$$\Rightarrow T(\alpha_{m + 1} v_{m + 1} + \dots + \alpha_n v_n) = 0$$
+$$\Rightarrow \alpha_{m + 1} v_{m + 1} + \dots + \alpha_n v_n \in ker(T)$$\\
+But, since $\beta_0$ is a basis for $ker(T)$, then this vector also has the representation 
+$$\beta_1 v_1 + \dots + \beta_m v_m\ for\ some\ \beta_1, \dots \beta_m \in F$$
+$$\Rightarrow \alpha_{m + 1} v_{m + 1} + \dots + \alpha_n v_n = \beta_1 v_1 + \dots + \beta_m v_m$$
+$$\Rightarrow -\beta_1 v_1 - \dots - \beta_m v_m + \alpha_{m + 1} v_{m + 1} + \dots + \alpha_n v_n = 0$$
+Remember $\beta = \{ v_1, \dots v_n \}$ is a basis. Thus, $\{ v_1, \dots v_n\}$ are linearly independent, and so the above equation implies $\alpha_i, \beta_j = 0\ \forall i, j$. Thus, $\alpha_{m + 1} T(v_{m + 1} ) + \dots + \alpha_n T(v_n) = 0$ is only true for $\alpha_{m + 1} = \dots = \alpha_n = 0$, and so $\{ T(v_{m + 1}), \dots T(v_n) \}$ is linearly independent.\\
+
+\textbf{Def: }a \emph{monomorphism} is an injective linear transformation.\\
+
+\textbf{Def: }an \emph{epimorphism} is a surjective linear transformation.\\
+
+\textbf{Def: }an \emph{isomorphism} is a bijective linear transformation.\\
+
+We say two vector spaces $V$ and $W$ are \emph{isomorphic} if there exists an isomorphism between the two, denoted as $V \cong W$. In general, an isomorphism is an extension of the notion of equality. For example, the $x$ and $y$ axes of the $\mathbb{R}^2$ plane are not strictly equal, as they contain different elements, but they share a certain mathematical structure, in that we can construct a mapping between the two sets, matching vectors to vectors such that operations in one set will preserve relationships between elements in the other. Technically speaking, an isomorphism is an equivalence relation.\\
+
+As our isomorphism $T: V \rightarrow W$ is a bijection, there exists an inverse transformation $T^{-1} : W \rightarrow V$. I claim this transformation is also linear. Let $w_1, w_2 \in W$ and $c \in F$. Suppose $T^{-1}(w_1) = v_1$ and $T^{-1}(w_2) = v_2$, for $v_1, v_2 \in V$. Then $T(v_1) = w_1$ and $T(v_2) = w_2$.
+$$T^{-1}(c w_1 + w_2) = T^{-1}(cT(v_1) + T(v_2)) = T^{-1}(T(c v_1 + v_2))$$ 
+$$T^{-1}(T(c v_1 + v_2)) = c v_1 + v_2 = c T^{-1}(v_1) + T^{-1}(w_2)$$
+Since $T^{-1}(c w_1 + w_2) = c T^{-1}(w_1) + T^{-1}(w_2)$, $T^{-1}$ is linear.\\
+
+
+
 \end{document}
 
 
