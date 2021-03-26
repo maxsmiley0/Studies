@@ -198,7 +198,19 @@ At this point, we have fleshed out the concepts we need to describe vector space
 \\\\
 \textbf{Def: }a \emph{function} $f: X \rightarrow Y$ is a map that assigns a unique $y \in Y$ for each $x \in X$. The set $X$ is called the \emph{domain} of $f$, while the set $Y$ is called the \emph{codomain} of $f$. The \emph{range} or \emph{image} of $f$ denotes the set of all $f(x) \in Y\  \forall x \in X$, which is not strictly the same as the codomain.\\
 
-\textbf{Def: }an \emph{injection} is a function $f: X \rightarrow Y$ such that $f(x_1) = f(x_2)\Rightarrow x_1 = x_2\ \forall\ x_1, x_2 \in X$. It is also called a \emph{one to one function}, as it implies no two $x's \in X$ map to the same $y \in Y$.\\
+\textbf{Def: }a \emph{linear transformation} is a function $T: V \rightarrow W$ such that $\forall v_1, v_2 \in V$ and $c \in F$, then $T(cv_1 + v_2) = cT(v_1) + T(v_2)$.\\
+
+Essentially, every function introduced in linear algebra will be a linear transformation. Linear functions are everywhere in mathematics, and so the study of them will be enriching in many areas. For example, derivatives and integrals are linear functions, as $\frac{\partial}{\partial t}(cf + g) = c \frac{\partial f}{\partial t} + \frac{\partial g}{\partial t}$, and $\int (cf + g) = c \int f + \int g$, for some functions $f$ and $g$, and some constant $c$. Note our definition of a linear transformation implies $T(0_V) = 0_W$, as for some $v \in V$, $T(0_V) = T(v - v) = T(v) - T(v) = 0_W$.\\
+
+\textbf{Def: }a \emph{linear operator} is a linear transformation $T: V \rightarrow V$ such that its domain is its codomain.\\
+
+It's useful to distinguish this case, as we're not always interested in mapping elements from different sets. For example, a rotation transformation in $\mathbb{R}^2$ takes vectors from $\mathbb{R}^2$ to $\mathbb{R}^2$.\\
+
+\textbf{Def: }the \emph{kernel} of a linear transformation is the set of all $v \in V$ such that $T(v) = 0$.\\
+
+We claim both the image and kernel of a linear transformation $T: V \rightarrow W$ are subspaces. $im(T) := \{ T(v) \in W\ |\ v \in V\} \Rightarrow\ im(T) \subseteq W$. Now suppose we have $w_1, w_2 \in im(T)$ and $c \in F$. Then $\exists\ v_1, v_2 \in V$ such that $T(v_1) = w_1$ and $T(v_2) = w_2$. By linearity, $T(c v_1 + v_2) = cT(v_1) + T(v_2) = c w_1 + w_2$. Thus, $c w_1 + w_2 \in im(T)$, and so $im(T)$ is a subspace of W. $ker(T) := \{ v \in V\ |\ T(v) = 0 \} \Rightarrow\ ker(T) \subseteq V$. Now suppose we have $v_1, v_2 \in ker(T)$, and $c \in F$. By linearity, $T(c v_1 + v_2) = cT(v_1) + T(v_2)$. But, since $v_1, v_2 \in ker(T)$, $cT(v_1) + T(v_2) = c \cdot 0 + 0 = 0 \Rightarrow c v_1 + v_2 \in ker(T)$. Thus, $ker(T)$ is a subspace of V.\\
+
+\textbf{Def: }an \emph{injection} is a function $f: X \rightarrow Y$ such that $f(x_1) = f(x_2)\Rightarrow x_1 = x_2\ \forall\ x_1, x_2 \in X$. It is also called a \emph{one to one function}, as it implies no two $x$'s in $X$ map to the same $y$ in $Y$. 
 
 An example of an injective function is $f: \mathbb{R} \rightarrow \mathbb{R}$ by $x \mapsto e^{x}$, as since $\frac{\partial}{\partial x}e^x  > 0\ \forall x \in \mathbb{R}$, $e^x$ is always increasing, and so two distinct $x$'s in $\mathbb{R}$ will never map to the same $f(x) \in \mathbb{R}$. An example of a non-injective function is $f: \mathbb{R} \rightarrow \mathbb{R}$ by $x \mapsto x^2$, as both $x = -1$ and $x = 1$ map to $f(x) = 1$. \\
 
@@ -207,8 +219,6 @@ An example of an injective function is $f: \mathbb{R} \rightarrow \mathbb{R}$ by
 An example of a surjective function is $f: \mathbb{R} \rightarrow \mathbb{R}$ by $x \mapsto 2x$, as for any $y \in Y$, we can find an $x \in X$ such that $f(x) = y$, namely $x = \frac{y}{2}$ in this case, which is in $\mathbb{R}$, as $\mathbb{R}$ is closed under division. An example of a non-surjective function is $f: \mathbb{Z} \rightarrow \mathbb{Z}$ by $x \mapsto 2x$, as, for example, $y = 3$ is never mapped to, as it would require $x = \frac{3}{2}$, but $\frac{3}{2} \notin \mathbb{Z}$.\\
 
 \textbf{Def: }a \emph{bijection} is a function $f: X \rightarrow Y$ such that $f$ is an injection and a surjection. If $f$ is a \emph{bijection}, then each $x \in X$ is associated with a unique $y \in Y$, and each $y \in Y$ is associated with a unique $x \in X$. Thus, $|X| = |Y|$. Additionally, we can define a new map $f^{-1}: Y \rightarrow X$ by $y \mapsto x$ if $f(x) = y$.\\
-
-
 
 \end{document}
 
