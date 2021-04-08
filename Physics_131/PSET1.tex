@@ -243,14 +243,14 @@ c.)$$\sin(k \sigma_1) = k \sigma_1 + \frac{k^3 \sigma_1^3}{3!} + \frac{k^5 \sigm
 Since $\sigma_1^2 = \textbf{1}$, then any odd power of $\sigma_1$ is $\sigma_1$, i.e. $\sigma_1^{2n + 1} = \sigma_1^{2n} \sigma_1 = \textbf{1} \sigma_1 = \sigma_1$.
 $$\Rightarrow k \sigma_1 + \frac{k^3 \sigma_1}{3!} + \frac{k^5 \sigma_1}{5!} + \dots$$
 $$\Rightarrow \sigma_1 (k + \frac{k^3}{3!} + \frac{k^5}{5!} + \dots)$$
-$$\Rightarrow \sigma_1 \sin(k)$$
+$$\Rightarrow \sigma_1 \sin(k) = \begin{pmatrix} 0 & \sin(k) \\ \sin(k) & 0 \end{pmatrix}$$
 
 $$e^{k \sigma_3} = \textbf{1} + k \sigma_3 + \frac{k^2 \sigma_3^2}{2!} + \frac{k^3 \sigma_3^3}{3!} + \dots$$
 Since $\sigma_3^2 = \textbf{1}$, all even powers of $\sigma_3$ equal one, i.e. $\sigma_3^{2n} = \textbf{1}$, and all odd powers of $\sigma_1$  equal $\sigma_1$, i.e. $\sigma_3^{2n + 1} = \sigma_3^{2n} \sigma_3 = \textbf{1} \sigma_3 = \sigma_3$ 
 $$\Rightarrow \textbf{1} + k \sigma_3 + \frac{k^2 \textbf{1}}{2!} + \frac{k^3 \sigma_3}{3!} + \dots$$
 $$\Rightarrow (\textbf{1} + \frac{k^2 \textbf{1}}{2!} + \dots) + (k \sigma_3 + \frac{k^3 \sigma_3}{3!} + \dots)$$
 $$\Rightarrow \textbf{1}(1 + \frac{k^2}{2!} + \dots) + \sigma_3(k + \frac{k^3}{3!} + \dots)$$
-$$\Rightarrow \cosh(k) \textbf{1} + \sinh(k) \sigma_3$$
+$$\Rightarrow \cosh(k) \textbf{1} + \sinh(k) \sigma_3 = \begin{pmatrix} \cosh(k) + \sinh(k) & 0 \\ 0 & \cosh(k) - \sinh(k)\end{pmatrix}$$
 
 $$e^{\theta \sigma'} = \textbf{1} + \theta \sigma' + \frac{\theta^2 \sigma'^2}{2!} + \frac{\theta^3 \sigma'^3}{3!} + \dots$$
 Where $\sigma' = i \sigma_2 = \begin{pmatrix} 0 & 1\\ -1 & 0 \end{pmatrix}$. Note $\sigma'^2 = -\textbf{1}$, and hence $\sigma'^3 = -\sigma'$, $\sigma'^4 = \textbf{1}$, and the sigmas subsequently cycle through these values every four powers.
