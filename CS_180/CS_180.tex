@@ -50,10 +50,15 @@ $while\ \exists\ unmatched\ m \in M:$\\
 \emph{Proof: }since the algorithm assigns $1$ to $1$ pairs, if there is not a perfect matching by the end of the algorithm, then $\exists m \in M$ such that no $(m, w) \in S$ for $w \in W$. However, the algorithm wouldn't have ended if there were still an $m$ leftover at the end, it would have assigned him to $w$. \\
 
 \textbf{Claim: }The GS algorithm outputs a stable matching.\\
-\emph{Proof: }Assume, by way of contradiction, that the GS algorithm did not output a stable matching. Then $\exists (m, w), (m', w') \in S$ such that $m$ prefers $w'$ to $w$ and $w'$ prefers $m$ to $m'$. If this were the case, then $m$ would have proposed to $w'$ before $w$. $w'$ would have either rejected $m$ (if she had a better mate) or accepted him, but in either case, by Lemma C, $w'$ would never have matched with $m'$ thereafter, as she prefers $m$ to $m'$.\\
+\emph{Proof: }assume, by way of contradiction, that the GS algorithm did not output a stable matching. Then $\exists (m, w), (m', w') \in S$ such that $m$ prefers $w'$ to $w$ and $w'$ prefers $m$ to $m'$. If this were the case, then $m$ would have proposed to $w'$ before $w$. $w'$ would have either rejected $m$ (if she had a better mate) or accepted him, but in either case, by Lemma C, $w'$ would never have matched with $m'$ thereafter, as she prefers $m$ to $m'$.\\
 
-\textbf{Claim: }
-\emph{Proof: }
+\textbf{Def: }a pair $(m, w)$ is \emph{valid} if there exists some stable matching $S$ such that $(m, w) \in S$.\\
+
+\textbf{Claim: }The GS algorithm outputs the best valid pairs for men.\\
+\emph{Proof: }assume, by way of contradiction, that a man $m$ is rejected by his best valid partner $w$ in favor of another man $m'$. Since this many happen many times, assume this is the first instance of a man being rejected by his best valid partner. However, since $(m, w)$ is a valid matching, there exists a stable matching $S$ such that $(m, w)$, $(m', w') \in S$. Originally, when $m$ proposed to $w$, she was already matched with $m'$, meaning $m'$ had $w$ higher up on his list than any other valid match by Lemma B (he couldn't have been rejected by his best valid match by the original condition. Since $m$ being rejected by $w$ was the first instance of someone being rejected by their best valid partner, then in the original scenario, $()$ We know $w$ prefers $m'$, so showing $m'$ prefers $w$ is sufficient to show there is a rogue pair, and thus a contradiction. 
+
+\textbf{Claim: }The GS algorithm outputs the worst valid pairs for women.\\
+\emph{Proof: }assume, by way of contradiction, that the GS algorithm does not output the worst valid pairs for women, i.e. $\exists (m, w) \in S$ such that for some $m'$ ranked lower than $m$ by $w$, $(m', w)$ is part of a stable matching. By Lemma C, if $(m', w)$ were ever a pair, it would have been before $(m, w)$ was a pair.
 
 \end{document}
 
