@@ -231,8 +231,13 @@ $$\sigma_3 \sigma_2 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatr
 
 $$\sigma_3 \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \textbf{1} \qquad \qquad \delta_{33}\textbf{1} + i \epsilon_{33k} \sigma_k = \textbf{1}$$
 
-b.) Let $\vec{A} = (x, y)$ and $\vec{B} = (x', y')$. Then
-$$(\sigma_1 \cdot \vec{A})(\sigma_1 \cdot \vec{B}) =  (\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}) (\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} x' \\ y' \end{pmatrix}) = $$
+b.) Let $\vec{A} = (a_1, a_2, a_3)$, $\vec{B} = (b_1, b_2, b_3)$, and $\vec{\sigma} = (\sigma_1, \sigma_2, \sigma_3)$. Then
+$$(\sigma_1 \cdot \vec{A})(\sigma_1 \cdot \vec{B}) =  (a_1 \sigma_1 + a_2 \sigma_2 + a_3 \sigma_3)(b_1 \sigma_1 + b_2 \sigma_2 + b_3 \sigma_3) = \sum_{ij}^3 a_{i} b_{j} \sigma_i \sigma_j$$
+$$\Rightarrow \sum_{ij}^3 a_i b_j (\delta_{ij} \textbf{1} +  i \epsilon_{ijk} \sigma_k) = (a_1 b_1 + a_2 b_2 + a_3 b_3) \textbf{1} + i \sum_{ij}^3 a_i b_j \epsilon_{ijk} \sigma_k$$
+$$\Rightarrow (\vec{A} \cdot \vec{B}) \textbf{1} + i(a_1 b_2 \sigma_3 - a_1 b_3 \sigma_2 - a_2 b_1 \sigma_3 + a_2 b_3 \sigma_1 + a_3 b_1 \sigma_2 - a_3 b_2 \sigma_1)$$
+$$\Rightarrow (\vec{A} \cdot \vec{B}) \textbf{1} + i(\sigma_1(a_2 b_3 - a_3 b_2) + \sigma_2(-a_1 b_3 + a_3 b_1) + \sigma_3(a_1 b_2 - a_2 b_1))$$
+$$\Rightarrow (\vec{A} \cdot \vec{B}) \textbf{1} + i(a_2 b_3 - a_3 b_2, -a_1 b_3 + a_3 b_1, a_1 b_2 - a_2 b_1) \cdot \vec{\sigma})$$
+$$\Rightarrow (\vec{A} \cdot \vec{B}) \textbf{1} + i(\vec{A} \times \vec{B}) \cdot \vec{\sigma}$$
 
 c.)$$\sin(k \sigma_1) = k \sigma_1 + \frac{k^3 \sigma_1^3}{3!} + \frac{k^5 \sigma_1^5}{5!} + \dots$$
 Since $\sigma_1^2 = \textbf{1}$, then any odd power of $\sigma_1$ is $\sigma_1$, i.e. $\sigma_1^{2n + 1} = \sigma_1^{2n} \sigma_1 = \textbf{1} \sigma_1 = \sigma_1$.
