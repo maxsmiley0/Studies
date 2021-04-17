@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{geometry, amsfonts, parskip, amssymb, amsmath}
+\pagestyle{empty}
+
+\begin{document}
+\title{Physics 131 Problem Set 2}
+\author{Max Smiley}
+\date{Spring 2021}
+\maketitle
+
+1.) $A$ and $B$ are orthogonal if their transposes are their own inverses.
+$$AA^{T} = \begin{pmatrix} -\frac{\sqrt{3}}{2} & \frac{1}{2}\\ -\frac{1}{2} & -\frac{\sqrt{3}}{2}\end{pmatrix} \begin{pmatrix} -\frac{\sqrt{3}}{2} & -\frac{1}{2}\\ -\frac{1}{2} & \frac{\sqrt{3}}{2}\end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \textbf{1}$$
+$$A^{T}A = \begin{pmatrix} -\frac{\sqrt{3}}{2} & -\frac{1}{2}\\ -\frac{1}{2} & \frac{\sqrt{3}}{2}\end{pmatrix} \begin{pmatrix} -\frac{\sqrt{3}}{2} & \frac{1}{2}\\ -\frac{1}{2} & -\frac{\sqrt{3}}{2}\end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \textbf{1}$$
+Since $B$ is symmetric, we can make only once calculation with regards to $B$, namely
+$$BB^{T} = B^{T}B = B^2 = \begin{pmatrix} -\frac{1}{3} & \frac{2 \sqrt{2}}{3}\\ \frac{2 \sqrt{2}}{3} & \frac{1}{3}\end{pmatrix} \begin{pmatrix} -\frac{1}{3} & \frac{2 \sqrt{2}}{3}\\ \frac{2 \sqrt{2}}{3} & \frac{1}{3}\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1 \end{pmatrix} = \textbf{1}$$
+$det(A) = 1$, meaning $A$ represents a rotation. If we take $\theta = \frac{7 \pi}{6}$, we see the standard rotation matrix $\begin{pmatrix} \cos(\theta) & -\sin(\theta)\\ \sin(\theta) & \cos(\theta) \end{pmatrix}$ evaluated at this value yields the matrix $A$, so $A$ is the rotation matrix by $\frac{7 \pi}{6}$ counterclockwise.\\
+$det(B) = -1$, meaning $B$ represents a reflection. The vectors along the reflection axis will be unchanged through applications of $B$, in other words, the line of reflection is the set of all eigenvectors with $\lambda = 1$.
+$$det \begin{pmatrix} -\frac{1}{3} - \lambda & \frac{2 \sqrt{2}}{3}\\ \frac{2 \sqrt{2}}{3} & \frac{1}{3} - \lambda \end{pmatrix} = (-\frac{1}{3} - \lambda)(\frac{1}{3} - \lambda) - (\frac{2 \sqrt{2}}{3})(\frac{2 \sqrt{2}}{3}) = -\frac{1}{9} + \lambda^2 - \frac{8}{9} = \lambda^2 - 1$$
+Indeed, $1$ is an eigenvalue of $B$. We can proceed to finding an eigenbasis for $\lambda = 1$.
+$$\begin{pmatrix} -\frac{1}{3} - 1 & \frac{2 \sqrt{2}}{3}\\ \frac{2 \sqrt{2}}{3} & \frac{1}{3} - 1 \end{pmatrix} \Rightarrow \begin{pmatrix} -4 & 2 \sqrt{2}\\ 2 \sqrt{2} & -2 \end{pmatrix} \Rightarrow \begin{pmatrix} -4 & 2 \sqrt{2} \\ 0 & 0\end{pmatrix} \Rightarrow -4x + 2 \sqrt{2} y = 0$$
+$\Rightarrow y = x \sqrt{2}$ is the line of reflection for $B$.\\
+
+2.) Since $A$ and $B$ are symmetric, $A = A^T$, and $B = B^T$. If $AB$ is symmetric, then $AB = (AB)^T = B^TA^T = BA$. However, this is not true in general, as matrices aren't guaranteed to commute. This is only true if $AB = BA \Rightarrow AB - BA = 0 \Rightarrow [A, B] = 0$.\\
+
+3.) Let $A$ and $B$ be orthogonal matrices. Then $A^{-1} = A^T$, and $B^{-1} = B^T$. $AB$ is orthogonal if $(AB)^{-1} = (AB)^{T}$. 
+$$(AB)^{-1} = B^{-1}A^{-1} = B^TA^T = (AB)^T$$
+Thus, the product of two orthogonal matrices are orthogonal.\\
+
+4.) Let $A^{*}$ denote the adjoint matrix of A. If $A$ and $B$ are hermitian, then $A = A^{*}$ and $B = B^{*}$. $AB$ is hermitian if $AB = (AB)^* = B^*A^* = BA$. However, this is not true in general, as matrices aren't guaranteed to commute. This is only true if $AB = BA \Rightarrow AB - BA = 0 \Rightarrow [A, B] = 0$.\\
+
+5.) Let $A$ and $B$ be unitary matrices. Then $A^{-1} = A^*$, and $B^{-1} = B^*$. $AB$ is unitary if $(AB)^{-1} = (AB)^*$.
+$$(AB)^{-1} = B^{-1}A^{-1} = B^*A^* = (AB)^{*}$$
+Thus, the product of two unitary matrices are unitary.\\
+
+6.) $A = \begin{pmatrix} 1 & 2i \\ -2i & -2 \end{pmatrix}$, and $A^{*} = \begin{pmatrix} 1 & 2i \\ -2i & -2\end{pmatrix}$. Since $A = A^*$, $A$ is hermitian. $det \begin{pmatrix} 1 - \lambda & 2i\\ -2i & -2-\lambda \end{pmatrix} = 0 \Rightarrow (1 - \lambda)(-2 - \lambda) - (-2i)(2i) = 0 \Rightarrow \lambda^2 + \lambda - 6 = 0$.
+From this, we obtain $\lambda = -3, 2$. First, we'll solve for the unit eigenvector associated with $\lambda = -3$, and then $\lambda = 2$.
+$$\begin{pmatrix} 4 & 2i\\ -2i & 1 \end{pmatrix} \Rightarrow \begin{pmatrix} 4 & 2i\\ 4 & 2i \end{pmatrix} \Rightarrow \begin{pmatrix} 4 & 2i \\ 0 & 0 \end{pmatrix} \Rightarrow v = \begin{pmatrix} -i \\ 2 \end{pmatrix} \Rightarrow \hat{v} = \frac{1}{\sqrt{5}} \begin{pmatrix} -i \\ 2\end{pmatrix}$$
+$$\begin{pmatrix} -1 & 2i\\ -2i & -4 \end{pmatrix} \Rightarrow \begin{pmatrix} -1 & 2i\\ -1 & 2i \end{pmatrix} \Rightarrow \begin{pmatrix} -1 & 2i \\ 0 & 0 \end{pmatrix} \Rightarrow v = \begin{pmatrix} 2i \\ 1 \end{pmatrix} \Rightarrow \hat{v} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2i \\ 1\end{pmatrix}$$
+I claim the unitary matrix that diagonalizes $A$ is $U = \frac{1}{\sqrt{5}} \begin{pmatrix} i & 2 \\ -2i & 1 \end{pmatrix}$. To show it is unitary, we must show its inverse is its adjoint. $U^* = \frac{1}{\sqrt{5}} \begin{pmatrix} -i & 2i \\ 2 & 1 \end{pmatrix}$.
+$$U^*U = \frac{1}{5} \begin{pmatrix} -i & 2i \\ 2 & 1 \end{pmatrix} \begin{pmatrix} i & 2 \\ -2i & 1 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} 5 & 0 \\ 0 & 5\end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \textbf{1}$$
+$$UU^* = \frac{1}{5} \begin{pmatrix} i & 2 \\ -2i & 1 \end{pmatrix} \begin{pmatrix} -i & 2i \\ 2 & 1 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} 5 & 0 \\ 0 & 5\end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \textbf{1}$$
+Indeed, $U$ is unitary. Now, we must show $U$ diagonalizes $A$, with the eigenvalues being on the diagonal. We claim $A = U^{-1}DU$, where $D$ is the diagonal matrix with its entries being $-3$ and $2$.
+$$U^{-1}DU = \frac{1}{5} \begin{pmatrix} -i & 2i \\ 2 & 1 \end{pmatrix} \begin{pmatrix} -3 & 0 \\ 0 & 2 \end{pmatrix} \begin{pmatrix} i & 2 \\ -2i & 1 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} -i & 2i \\ 2 & 1 \end{pmatrix} \begin{pmatrix} -3i & -6 \\ -4i & 2 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} 5 & 10i \\ -10i & -10\end{pmatrix}$$
+$$\Rightarrow \begin{pmatrix} 1 & 2i \\ -2i & -2 \end{pmatrix} = A$$
+
+7.) Suppose $D$ is diagonal. Then $D_{ij} = 0$ for $i \neq j$. We prove the prompt by induction, where the hypothesis is that if $D$ is diagonal, then $(D^n)_{ij} = (D_{ij})^n$ \\
+
+Base Case: n = 2. Suppose we have a diagonal matrix, $A$. The ij'th element of its square is given by $(A^2)_{ij} = \sum_{k}A_{ik}A_{kj}$. If $i \neq j$ (i.e. the off-diagonals of $A$), then this sum is zero. The reason is that in each iteration of the sum, either $A_{ik}$ or $A_{kj}$ is zero, and thus their product is zero. Since $A$ is diagonal, $A_{ik}$ is only nonzero if $i = k$. But, if $i = k$, then $k \neq j$, since $i \neq j$ which implies $A_{kj} = 0$. Since $(A^2)_{ij} = 0$ for $i \neq j$, $A^2$ is diagonal. Moreover, if $i = j$ (i.e. the ith diagonal of $A$) $(A^2)_{ii} = \sum_kA_{ik}A_{ki} = A_{ii}A_{ii}$ since $A_{ij} = 0$ for $i \neq j$ $\Rightarrow (A^2)_{ii} = (A_{ii})^2$. In other words, the square of a diagonal matrix is a diagonal matrix whose diagonals are the squares of the diagonals of the original matrix.\\
+
+Inductive Step: does $P(n-1) \Rightarrow P(n)$? Consider $A^{n}$. Using matrix associativity, we rewrite this as $A(A^{n - 1})$. Using the induction hypothesis, $A^{n - 1}$ is also a diagonal matrix whose entries on the diagonal are simply the entries of the original matrix taken to the $(n-1)$th power. We rewrite this as $D$. Now consider the product $AD$. In the base case, we showed the product of two diagonal matrices is a diagonal matrix, and its entries are equal to the product of the diagonals of the two input matrices (the proof I gave technically only shows it for the square of a diagonal matrix, but without loss of generality, two diagonal matrices can be assumed, as arguments pertaining to how the off-diagonal elements disappear still hold, and the $A_{ii}A_{ii}$ line simply becomes $A_{ii}B_{ii}$). Then $AD$ is a diagonal matrix where $(AD)_{ii} = A_{ii}D_{ii} = A_{ii}(A_{ii})^{n - 1} = (A_{ii})^n$. Therefore, if $A$ is diagonal, then $A^n$ is also diagonal with elements equal to the $nth$ power of those of $D$.\\
+
+Now suppose $D = C^{-1}MC$, where $D$ is diagonal. Then $M = CDC^{-1}$. 
+
+
+
+$M^n = (CDC^{-1})^n = $ \[ \underbrace{(CDC^{-1}) \dots (CDC^{-1})}_{\text{n times}} \]
+In each block, the matrix $C$ will be matched with a neighboring matrix $C^{-1}$, and each matrix $C^{-1}$ will be matched with a neighboring matrix $C$. They will cancel each other out, and will leave us only with the leftmost $C$ matrix, $n$ $D$ matrices in the middle, and the rightmost $C^{-1}$ matrix. In other words, $M^{n} = CD^{n}C^{-1}$.\\
+
+8.) If $H$ is hermitian, then all of its eigenvalues are real. Therefore, $D$ has only real diagonal entries, and all zero non-diagonal entries and so $D^* = D$. Therefore, $D$ is hermitian, and thus $e^{iD}$ is unitary.
+$$e^{iH} = e^{iCDC^{-1}} = 1 + iCDC^{-1} + \frac{(iCDC^{-1})^2}{2!} + \frac{(iCDC^{-1})^3}{3!} + \dots$$
+$$\Rightarrow 1 + iCDC^{-1} + \frac{i^2CD^2C^{-1}}{2!} + \frac{i^3CD^3C^{-1}}{3!} + \dots$$
+$$\Rightarrow C(1 + iD + \frac{i^2D^2}{2!} + \frac{i^3D^3}{3!} + \dots)C^{-1}$$
+$$\Rightarrow Ce^{iD}C^{-1}$$
+$C$ is given to be unitary. $C^{-1}$ is also unitary, as $C^{**}$ = $C$, i.e. the inverse of $C^{-1}$ is also  the adjoint of $C^{-1}$. Since $e^{iD}$ was shown to be unitary, then $e^{iH}$ is indeed the product of $3$ unitary matrices.\\
+
+9.) These polynomials do not form a vector space. It is not closed under addition, as the sum of two such polynomials would produce a polynomial with a $6x^3$ term, which is not of the correct form. Similarly, it is not closed under scalar multiplication, as multiplying one such polynomial by an $\alpha$ term would produce a $3 \alpha x^3$ term, which is not in general $3x^3$. There is also no zero element, as such a polynomial must have the $3x^3$ term. There is also no additive inverse, as the coefficient of the cubic term is locked to be $3$, so we can't produce the $-3x^3$ needed to cancel out the $3x^3$ term.\\
+
+10.) If $A$ and $B$ are hermitian matrices, then they may be diagonalized by unitary matrices where the diagonal matrices have entries corresponding to the eigenvalues of $A$ or $B$. Since $A$ and $B$ share eigenvalues, we can construct the matrix composition such that their inner diagonal matrices are the same, namely $A = P^*DP$, $B = Q^*DQ$, for unitary matrices $P, P^*, Q, Q^*$. Rearranging, we get $D = PAP^* = QBQ^* \Rightarrow A = (P^*Q)B(Q^*P)$. If we can show $P^*Q$ and $Q^*P$ are unitary, then we have shown what was asked of us. In problem 5), we showed the product of any two unitary matrices is unitary, so indeed these quantities are unitary, as they are each the product of two unitary matrices.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
