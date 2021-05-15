@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{geometry, amsfonts, parskip, amssymb, amsmath}
+\pagestyle{empty}
+
+\begin{document}
+\title{Physics 131 Problem Set 5}
+\author{Max Smiley}
+\date{Spring 2021}
+\maketitle
+
+1.) 
+
+$$\langle \phi_n | \phi_m \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(nx) \cos(mx) dx$$
+Note $\cos(a + b) = \cos(a)\cos(b) - \sin(a)\sin(b)$ and $\cos(a - b) = \cos(a)\cos(b) + \sin(a)\sin(b)$. Then $\cos(a)\cos(b) = \frac{1}{2}(\cos(a + b) + \cos(a - b))$
+$$\Rightarrow \frac{1}{2\pi} \int_{-\pi}^{\pi}\cos((n + m)x) + \cos((n - m)x)dx$$
+$$\Rightarrow \frac{\sin((n + m)x)}{2\pi(n + m)} + \frac{\sin((n - m)x)}{2\pi(n - m)} \Big|_{-\pi}^{\pi}$$ 
+$$\Rightarrow \frac{\sin((n + m)\pi)}{\pi (n + m)} + \frac{\sin((n - m)\pi)}{\pi (n - m)}$$
+
+For $n \neq m$, then $n + m$ and $n - m$ are integers, and $\sin(k\pi)$ for $k \in \mathbb{Z}$ = 0. Thus, $\langle \phi_n | \phi_m \rangle = 0$ for $n \neq m$.\\
+
+If $n = m$, then again, $n + m$ is an integer and so the lefthand term equals zero. However, this produces an indeterminant form on the right term, so we must take the limit as $n \rightarrow m$.
+$$\lim_{n \rightarrow m} \frac{\sin((n - m) \pi}{\pi (n - m)} = \lim_{x \rightarrow 0} \frac{\sin(x\pi)}{x\pi} = \lim_{x \rightarrow 0} \frac{\pi \cos(x\pi)}{\pi} = 1$$
+Thus, for $n = m$, then $\langle \phi_n | \phi_m \rangle$ = 1. Therefore, $\langle \phi_n | \phi_m \rangle = \delta_{nm}$
+
+$$\langle \psi_a | \psi_b \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(ax) \sin(bx) dx$$
+Note $\cos(a + b) = \cos(a)\cos(b) - \sin(a)\sin(b)$ and $\cos(a - b) = \cos(a)\cos(b) + \sin(a)\sin(b)$. Then $\sin(a)\sin(b) = \frac{1}{2}(\cos(a - b) - \cos(a + b))$
+$$\Rightarrow \frac{1}{2\pi} \int_{-\pi}^{\pi}\cos((a - b)x) - \cos((a + b)x)dx$$
+$$\Rightarrow \frac{\sin((a - b)x)}{2\pi(a - b)} - \frac{\sin((a + b)x)}{2\pi(a + b)} \Big|_{-\pi}^{\pi}$$ 
+$$\Rightarrow \frac{\sin((a - b)\pi)}{\pi (a - b)} - \frac{\sin((a + b)\pi)}{\pi (a + b)}$$
+
+For $a \neq b$, then $a + b$ and $a - b$ are integers, and $\sin(k\pi)$ for $k \in \mathbb{Z}$ = 0. Thus, $\langle \psi_a | \psi_b \rangle = 0$ for $a \neq b$.\\
+
+If $a = b$, then again, $a + b$ is an integer and so the righthand term equals zero. However, this produces an indeterminant form on the left term, so we must take the limit as $a \rightarrow b$.
+$$\lim_{a \rightarrow b} \frac{\sin((a - b) \pi}{\pi (a - b)} = \lim_{x \rightarrow 0} \frac{\sin(x\pi)}{x\pi} = \lim_{x \rightarrow 0} \frac{\pi \cos(x\pi)}{\pi} = 1$$
+Thus, for $a = b$, then $\langle \psi_a | \psi_b \rangle$ = 1. Therefore, $\langle \psi_a | \psi_b \rangle = \delta_{ab}$
+
+$$\langle \phi_n | \psi_a \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(nx) \sin(ax) dx$$
+Note $\sin(a + b) = \sin(a)\cos(b) + \sin(b)\cos(a)$ and $\sin(a - b) = \sin(a)\cos(b) - \sin(b)\cos(a)$. Then $\sin(a)\cos(b) = \frac{1}{2}(\sin(b + a) - \sin(b - a))$
+$$\Rightarrow \frac{1}{2\pi} \int_{-\pi}^{\pi}\sin((a + n)x) + \sin((a - n)x)dx$$
+$$\Rightarrow -\frac{\cos((a + n)x)}{2\pi(a + n)} - \frac{\cos((a - n)x)}{2\pi(a - n)} \Big|_{-\pi}^{\pi}$$ 
+
+Since $\cos(\theta)$ is an even function, this will be zero, because its value at $\pi$ will be equal to that at $-\pi$. Thus $\langle \phi_n | \psi_a \rangle = 0$.
+
+$$a_n = \langle \phi_n | f \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \phi_n f(x) dx =  \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(nx) f(x) dx$$
+
+$$a_0 = \langle \phi_0 | f \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \phi_0 f(x) dx =  \frac{1}{\pi \sqrt{2}} \int_{-\pi}^{\pi} f(x) dx$$
+
+$$b_m = \langle \psi_m | f \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} \psi_m f(x) dx =  \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(mx) f(x) dx$$
+
+\pagebreak
+
+2.) 
+
+$$\langle \xi_n | \xi_m \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{-inx}  e^{imx} dx = \frac{1}{2\pi} \int_{-\pi}^{\pi}e^{ix(m - n)} dx = \frac{e^{ix(m - n)}}{2i\pi (m - n)} \Big|_{-\pi}^{\pi}$$
+$$\Rightarrow \frac{e^{i\pi(m - n)}}{2i\pi(m - n)} - \frac{e^{-i\pi(m - n)}}{2i\pi(m - n)} = \frac{1}{2i\pi(m - n)}(e^{i\pi(m - n)} - e^{-i\pi(m - n)})$$
+
+For $n = m$, we have an indeterminant form, so we must evaluate it by taking the limit as $m \rightarrow n$.
+
+$$\Rightarrow \lim_{m \rightarrow n} \frac{1}{2i\pi(m - n)}(e^{i\pi(m - n)} - e^{-i\pi(m - n)}) = \lim_{x \rightarrow 0} \frac{1}{2ix\pi}(e^{ix\pi} - e^{-ix\pi})$$
+$$\Rightarrow \lim_{x \rightarrow 0} \frac{1}{2}(e^{ix\pi} + e^{-ix\pi}) = 1$$
+
+Thus, $\langle \xi_n | \xi_m \rangle = 1$ for $n = m$. Now consider the case in which $n \neq m$. Then we can expand our complex exponentials.
+$$\Rightarrow \frac{1}{2i\pi(m - n)}(\cos(\pi(m - n)) + i\sin(\pi(m - n)) - cos(\pi(m - n)) + i\sin(\pi(m - n)))$$
+$$\Rightarrow \frac{\sin(\pi(m - n))}{\pi(m - n)}$$
+For $n \neq m$, then $n + m$ and $n - m$ are integers, and $\sin(k\pi)$ for $k \in \mathbb{Z}$ = 0. Thus, $\langle \xi_n | \xi_m \rangle = 0$ for $n \neq m$. All together, $\langle \xi_n | \xi_m \rangle = \delta_{nm}.$
+
+$$c_n = \langle \phi_n | f \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{-inx} f(x) dx$$
+\pagebreak
+
+3.)
+$$c_n = \langle e^{inx} | f \rangle = \frac{1}{P} \int_P e^{-inx} f(x) dx$$
+$$c_{-n} = \langle e^{-inx} | f \rangle = \frac{1}{P} \int_P e^{inx} f(x) dx$$
+$$c_{\bar{n}} = \overline{\langle e^{inx} | f \rangle} = \overline{\frac{1}{P} \int_P e^{-inx} f(x) dx}$$
+Since the only complex contribution from the integral comes from the complex exponential, we can redistribute the "bar".
+$$\Rightarrow c_{\bar n} = \frac{1}{P} \int_{P} \overline{e^{-inx}} f(x) dx = \frac{1}{P} \int_P e^{inx} f(x) dx = c_{-n}$$
+\pagebreak
+
+4.) 
+$$a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(nx) f(x) dx$$
+$$b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(nx) f(x) dx$$
+$$c_n = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{-inx} f(x) dx = \frac{1}{2\pi}\int_{-\pi}^{\pi} \cos(nx) f(x) dx - \frac{1}{2\pi} \int_{-\pi}^{\pi} i \sin(nx) f(x) dx$$
+$$\Rightarrow c_n = \frac{a_n}{2} - \frac{i b_n}{2}$$
+$$c_{-n} = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{inx} f(x) dx = \frac{1}{2\pi}\int_{-\pi}^{\pi} \cos(nx) f(x) dx + \frac{1}{2\pi} \int_{-\pi}^{\pi} i \sin(nx) f(x) dx$$
+$$\Rightarrow c_{-n} = \frac{a_n}{2} + \frac{i b_n}{2}$$
+
+Adding $c_n$ with $c_{-n}$, we get $\Rightarrow a_n = c_n + c_{-n}$
+Similarly, subtracting, we arrive at $c_{-n} - c_n = ib_n$
+$$\Rightarrow b_n = \frac{c_{-n} - c_n}{i}$$
+
+\pagebreak
+
+5.) 
+$$\frac{1}{\pi}\int_{-\pi}^{\pi}(\sum_n a_n \phi_n + b_n \psi_n)^2 dx = \frac{1}{\pi} \int_{-\pi}^{\pi} (\sum_n (a_n \phi_n + b_n \psi_n) \sum_m (a_m \phi_m + b_m \psi_m)) dx$$
+$$\Rightarrow \frac{1}{\pi} \int_{-\pi}^{\pi} \sum_{n, m} (a_n \phi_n + b_n \psi_n) (a_m \phi_m + b_m \psi_m) dx $$
+$$\Rightarrow \frac{1}{\pi} \int_{-\pi}^{\pi} \sum_{n, m} (a_n a_m \langle \phi_n | \phi_m \rangle + a_n b_m \langle \phi_n | \psi_m \rangle + b_n a_m \langle \psi_n \phi_m \rangle + b_n b_m \langle \psi_n | \psi_m \rangle)dx $$
+
+Using the orthonormality of the basis vectors, we arrive at
+$$\frac{1}{\pi} \int_{-\pi}^{\pi} \sum_{n, m} a_n a_m \delta_{nm} + b_n b_m \delta_{nm} dx = \frac{1}{\pi} \int_{-\pi}^{\pi} \sum_n a_n^2 + b_n^2 dx = \frac{1}{\pi} \sum_n (a_n^2 + b_n^2)x \Big|_{-\pi}^{\pi}$$
+$$\Rightarrow \sum_n (a_n^2 + b_n^2)$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
