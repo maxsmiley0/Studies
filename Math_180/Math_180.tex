@@ -1,0 +1,597 @@
+\documentclass[12pt]{article}
+\usepackage{geometry, amsfonts, parskip, amssymb, amsmath}
+\pagestyle{empty}
+
+\begin{document}
+
+\title{Math 180}
+\author{Max Smiley}
+\date{Winter 2022}
+\maketitle
+
+\section{Lecture 1}
+
+\textbf{Well-Ordering Principle: }\emph{Any nonempty subset of the natural numbers $\mathbb{N}$ has a smallest element}
+
+\textbf{Def: }a \emph{set} is a collection of objects
+\begin{itemize}
+    \item \emph{sets are denoted with capital letters}
+    \item \emph{elements of sets are denoted with lower case letters}
+    \item \emph{if a set $X$ contains an element $x$, then $x \in X$}
+\end{itemize}
+
+\textbf{Def: }an \emph{unordered pair} containing $x, y$ is the set $\{x, y \}$
+\begin{itemize}
+    \item $\{x, y\} = \{y, x\}$
+\end{itemize}
+
+\textbf{Def: }an \emph{ordered pair} containing $x, y$ is the denoted as $(x, y)$
+\begin{itemize}
+    \item \emph{$(x, y) \neq (y, x)$, generally}
+    \item \emph{The pair $(x_1, \dots, x_n)$ denotes the n-tuple of elements $x_1, \dots, x_n$}
+\end{itemize}
+
+\textbf{Def: }the \emph{empty set $\emptyset$} is the set containing no elements
+\begin{itemize}
+    \item \emph{Note $\{\emptyset\}$ is a set with one element, $\emptyset$}
+\end{itemize}
+
+\textbf{Def: }the \emph{cardinality} of a finite set $X$, denoted as $|X|$ is the number of elements it contains
+
+\clearpage
+
+\section{Lecture 2}
+
+\textbf{Def: }a set $X$ is a \emph{subset} of another set $Y$ if $x \in X \Rightarrow x \in Y$
+\begin{itemize}
+    \item \emph{$\{ 3, 4, 5\} \subseteq \{ 3, 4, 5, 6\}$}
+\end{itemize}
+
+\textbf{Def: }the \emph{union} of two sets $X$ and $Y$ is defined as the set containing all elements of $X$ and $Y$
+\begin{itemize}
+    \item \emph{$X \cup Y := \{ z : z \in X$ or $z \in Y\}$}
+    \item \emph{For a collection of sets $X_{\alpha}$ indexed by some $\alpha \in I$, then $$\bigcup_{\alpha \in I} X_{\alpha} := \{ \exists \alpha \in I : x \in X_{\alpha} \}$$}
+\end{itemize}
+
+\textbf{Def: }the \emph{intersection} of two sets $X$ and $Y$ is defined as the set containing elements only in both $X$ and $Y$
+\begin{itemize}
+    \item \emph{$X \cap Y := \{ z : z \in X$ and $z \in Y\}$}
+    \item \emph{For a collection of sets $X_{\alpha}$ indexed by some $\alpha \in I$, then $$\bigcap_{\alpha \in I} X_{\alpha} := \{ x \in X_{\alpha}\ \forall \alpha \in I \}$$}
+\end{itemize}
+
+\textbf{Def: }the \emph{difference} of two sets $X$ and $Y$ is defined as the set containing all elements of $X$ not in $Y$
+\begin{itemize}
+    \item \emph{$X \setminus Y := \{ z : z \in X$ and $z \notin Y\}$}
+\end{itemize}
+
+\textbf{Def: }the \emph{cartesian product} of two sets $X$ and $Y$ is the set of all ordered pairs $(x, y)$ such that $x \in X$ and $y \in Y$
+\begin{itemize}
+    \item $X \times Y := \{ (x, y) : x \in X\ and\ y \in Y\}$
+\end{itemize}
+
+\textbf{Proposition 1.3.1: }let $X$ be a set containing 1, and the property $n \in X \Rightarrow n + 1 \in X$. Then $X = \mathbb{N}$
+\begin{itemize}
+    \item 
+    \emph{Prove via induction}
+\end{itemize}
+
+\textbf{Induction (Theorem 1.3.2):} Let $\{ P(n) \}$ be a set of logical propositions. If $P(1)$ is true, and $P(n) \Rightarrow P(n + 1)$, then $P(n)$ is true $\forall n \in \mathbb{N}$
+
+\textbf{Def (1.4.1): }a \emph{function} from two sets $A$ and $B$ is a subset of $A \times B$ such that for any $a \in A$, there exists a unique $b \in B$ such that $(a, b) \in f$
+\begin{itemize}
+    \item $f: A \rightarrow B \subseteq A \times B\ s.t.\ \forall a \in A,\ \exists!b \in B\ s.t.\ f(a) = b$
+\end{itemize}
+
+\textbf{Def (1.4.2): }let $f: A \rightarrow B$ and $g: B \rightarrow C$ be functions. The \emph{composition of the functions f and g} is defined as a new function such that
+\begin{itemize}
+    \item $(g \circ f)(a): A \rightarrow C := g(f(a))\ \forall a \in A$
+\end{itemize}
+
+\textbf{Def (1.4.3): }the following define specific classes of functions for $f: A \rightarrow B$
+\begin{itemize}
+    \item \emph{injective: } $f(a_1) = f(a_2) \Rightarrow a_1 = a_2\ \forall a_1, a_2 \in A$
+    \item \emph{surjective: } $\forall b \in B, \exists a \in A\ s.t.\ f(a) = b$
+    \item \emph{a function is bijective if it is both injective and surjective, it is also said to be invertible}
+\end{itemize}
+
+\clearpage
+
+\section{Lecture 3}
+
+
+\textbf{Def: }let $f: A \rightarrow B$ be a bijective function. We define the \emph{inverse} of f as $f^{-1} : B \rightarrow A$ such that $f^{-1}(b) = a$, where $a$ is the unique element such that $f(a) = b$
+
+\textbf{Def: }let $A$ and $B$ be sets. A relation on $A$
+ and $B$ is a subset of $A \times B$
+ \begin{itemize}
+     \item \emph{if $R$ is a relation on $A \times B$, we say $x \in A$ is in relation to $y \in B$ if $(x, y) \in R$}
+     \item \emph{the notation $(x, y) \in R$ is equivalent to saying $xRy$}
+     \item \emph{all functions are relations, but not all relations are functions}
+ \end{itemize}
+ 
+\textbf{Def: }let $A, B, C$ be sets. Let $R \subseteq A \times B$ and $S \subseteq B \times C$ be relations. We define \emph{the composition of relations of R and S as the relation $T = R \circ S \subseteq A \times C$ where $(a, c) \in T$ if $\exists b \in B\ s.t.\ (a, b) \in R$ and $(b, c) \in S$}
+
+\textbf{Def (1.6.1): }the following define specific classes of a relation $R$ on a set $X$
+\begin{itemize}
+    \item \emph{reflexive: $xRx\ \forall x \in X$}
+    \item \emph{symmetric: $xRy \Rightarrow yRx\ \forall x, y \in X$}
+    \item \emph{antisymmetric: $(x, y) \in R \Rightarrow (y, x) \notin R\ \forall x \in X$ (for $x \neq y$)}
+    \item \emph{transitive: $xRy\ and\ yRz \Rightarrow xRz\  \forall x, y, z \in X$}
+\end{itemize}
+\clearpage
+
+\section{Lecture 4}
+\textbf{Def: }an \emph{inverse relation} $R^{-1}$ of a relation $R$, is the relation $$R^{-1} := \{ (b, a) : (a, b) \in R \}$$
+
+\textbf{Def: }the diagonal relation on a set $A$, denoted $\Delta_{A}$ is the smallest reflexive relation on $A$
+$$D := \{ (a, a) : a \in A \}$$
+
+\textbf{Def: }let $R$ be a relation on a set $A$. We say $R$ is an \emph{equivalence relation} if it is \emph{reflexive}, \emph{symmetric}, and \emph{transitive}
+
+\textbf{Def: }let $R$ be an equivalence relation on a set $A$. The \emph{equivalence class} of an object $a \in A$, denoted as $[x]$ is the set of all $b \in A$ such that $a$ and $b$ form an equivalence relation
+$$[a] := \{ b \in A : (a, b) \in R \}$$
+
+\textbf{Def: }an \emph{equivalence} is an extension of the notion of equality to more general mathematical objects. Two objects are said to be equivalent if they belong to the same \emph{equivalence class}
+
+\textbf{Def: }a relation $R$ on a set $A$ is said to be an \emph{ordering} of $A$ if it is \emph{reflexive}, \emph{antisymmetric}, and \emph{transitive}
+\begin{itemize}
+    \item \emph{$\geq$ is an ordering on $\mathbb{N}$}
+\end{itemize}
+
+\textbf{Def: }a relation $R$ on a set $A$ is said to be a \emph{total ordering}, equivalently a \emph{linear ordering}, if $\forall a, b \in R$, either $aRb$ or $bRa$
+\begin{itemize}
+    \item \emph{Equivalently, if $R$ is n ordering and $R \cup R^{-1} = A \times B$}
+\end{itemize}
+
+\textbf{Proposition 1.6.3: }\emph{let $R$ be an equivalence relation on a set $S$. Then}
+\begin{itemize}
+    \item \emph{$\forall x \in X$ : $[x] \neq \emptyset$}
+    \item \emph{for two equivalence classes $[a], [b] \in R$, either $[a] = [b]$ or $[a] \cap [b] = \emptyset$}
+    \item \emph{if $R$ and $S$ are equivalences on $x$, then $R[x] = S[x]\ \forall x \in X \Rightarrow S = R$}
+\end{itemize}
+\clearpage
+
+\section{Lecture 5}
+\textbf{Def: }let $(X, \preceq)$ be an ordered set. We say $x$ is an \emph{immediate predecessor} of $y$ if
+\begin{itemize}
+    \item \emph{$x \prec y$}
+    \item \emph{there exists no $x' \in X$ such that $x \prec x' \prec y$}
+    \item \emph{this relation is denoted as $\Delta$, e.g. $x\Delta y$ iff $x$ is an immediate predecessor of $y$}
+\end{itemize}
+
+\textbf{Proposition 2.1.4: }\emph{let $(X, \preceq)$ be a finite ordered set, and $\Delta$ the immediate predecessor relation. Then $x \prec y \Rightarrow \exists x_1, \dots, x_n \in X$ such that $x_1 \Delta \dots \Delta x_k$ for $k \geq 0$}
+\begin{itemize}
+    \item \emph{in other words, we can take a finite number of "immediate predecessor steps" to go from $x$ to $y$ if $x \prec y$}
+\end{itemize}
+\clearpage
+
+\section{Lecture 6}
+\textbf{Thm 2.2.1: }\emph{let $(X, \preceq)$ be a finite, partially ordered set. Then there exists a linear ordering on $X$, denoted $\leq$ such that $x \preceq y \Rightarrow x \leq y\ \forall x, y \in X$}
+\begin{itemize}
+    \item \emph{We can extend every partial ordering to a linear ordering}
+\end{itemize}
+
+\textbf{Def: }let $(X, \preceq)$ be an ordered set, and $a 
+\in X$. We say $a$ is a
+\begin{itemize}
+    \item \emph{minimal element of $(X, \preceq)$ if there is no $x \in X$ such that $x \prec a$}
+    \item \emph{maximal element of $(X, \preceq)$ if there is no $x \in X$ such that $a \prec x$}
+\end{itemize}
+
+\textbf{Thm 2.2.3: }\emph{Every finite partially ordered set $(X, \preceq)$ has at least one minimal element.}
+\begin{itemize}
+    \item \emph{$\mathbb{Z}$, the set of all integers, for example, is an infinite set with no minimal element}
+\end{itemize}
+
+\textbf{Def: }let $(X, \preceq)$ be an ordered set, and $a 
+\in X$. We say $a$ is a
+\begin{itemize}
+    \item \emph{smallest element of $(X, \preceq)$ if $\forall x \in X$ : $a \preceq x$}
+    \item \emph{largest element of $(X, \preceq)$ if $\forall x \in X$ : $x \preceq a$}
+\end{itemize}
+
+\textbf{Def: }let $(X, \preceq)$ and $X', \preceq')$ be ordered sets. Let $f: X \rightarrow X'$ be a function. We say $f$ is an \emph{embedding} of $(X, \preceq)$ into $(X', \preceq')$ if
+\begin{itemize}
+    \item \emph{f is injective}
+    \item $\forall x, y \in X : x \preceq y \Leftrightarrow f(x) \preceq f(y)$
+\end{itemize}
+
+\textbf{Def: }let $(X, \preceq)$ be an ordered set. Then there exists an embedding of $(X, \preceq)$ into the ordered set $(\mathcal{P}(X), \subseteq)$
+
+\textbf{Def: }let $P = (X, \preceq)$ be an ordered set. Let $A$ be a subset of $X$. We say $A$ is independent in $P$ if $x \preceq y$ for every distinct element $x, y \in A$
+
+\textbf{Def: }let $P = (X, \preceq)$ be an ordered set. Let $x, y \in X$ such that $x \neq y$. We say $x$ and $y$ are incomparable if neither $x \preceq y$ or $y \preceq x$
+\begin{itemize}
+    \item \emph{equivalently, a set $A$ is independent if all of its elements are incomparable}
+\end{itemize}
+
+\textbf{Def: }$\alpha(X)$ is the cardinality of the maximum independent subset of $X$ 
+\clearpage
+
+\section{Lecture 7}
+\textbf{Proposition 3.1.1: }\emph{let $X$ be a set of $n$ elements and $Y$ be a set of $m$ elements. Then the following hold}
+\begin{itemize}
+    \item \emph{$m^n$ is the number of functions $f: X \rightarrow Y$} 
+    \item \emph{$2^n$ is the size of the power set $\mathcal{P}(X)$}
+    \item \emph{If $n \geq 1$, $X$ has exactly $2^{n - 1}$ subsets of odd size, and $2^{n - 1}$ subsets of even size}
+\end{itemize}
+
+\textbf{Proposition 3.1.2: }\emph{let $X$ be a set of $n$ elements and $Y$ be a set of $m$ elements. Then the number of injective functions is}
+$$\{ f: X \rightarrow Y \} = \prod_{i = 0}^{n - 1}(m - i)$$
+\begin{itemize}
+    \item \emph{For example, we can treat the set of four letter words with distinct elements as an injective function from "four slots" to the 26 letters}
+    \item \emph{Then, the number of four letter words with distinct letters are $26 \times 25 \times 24 \times 23 = 358800$}
+\end{itemize}
+
+\textbf{Def (3.1.3): }let $X$ be a finite set and $f: X \rightarrow X$ a function. We say $f$ is a permutation of $X$ if it is a bijection
+\begin{itemize}
+    \item \emph{for a set $\{ 1, 2, 3 \}$, we can say $\{ 2, 3, 1 \}$ is a permutation}
+    \item \emph{if $|X| = n$, the number of permutations (or bijective functions from $X$ to $X$) is $n!$}
+    \item \emph{$0! = 1$ and $n! = n (n - 1)!$}
+\end{itemize}
+
+\textbf{Def (3.3.1): }let $k, n \in \mathbb{N}$ such that $0 \leq k \leq n$. The \emph{binomial coefficient} 
+$\begin{pmatrix}
+n \\ k
+\end{pmatrix}$ is the number of $k$ element subsets of $n$
+$$\begin{pmatrix} n \\ k \end{pmatrix} := \frac{n!}{k!(n - k)!}$$
+
+\textbf{Proposition 3.3.2: }\emph{The following are properties of binomial coefficients}
+\begin{itemize}
+    \item $\begin{pmatrix} n \\ n - k \end{pmatrix} = \begin{pmatrix} n \\ k \end{pmatrix}$
+    \item $\begin{pmatrix} n - 1 \\ k - 1 \end{pmatrix} + \begin{pmatrix} n - 1 \\ k \end{pmatrix} = \begin{pmatrix} n \\ k \end{pmatrix}$
+    \item $\sum_{i = 0}^{n} \begin{pmatrix} n \\ i \end{pmatrix}^2 = \begin{pmatrix} 2n \\ n \end{pmatrix}$
+\end{itemize}
+
+\textbf{Binomial Theorem (Theorem 3.3.3): }For any nonnegative integer $n$, we have $$(x + y)^n = \sum_{k = 0}^n \begin{pmatrix} n \\ k \end{pmatrix} x^k y^{n - k}$$
+\begin{itemize}
+    \item \emph{We are essentially saying at each step, "how many different arrangements of $k$ x's and $n - k$ y's can we procure?"}
+\end{itemize}
+
+\textbf{Multinomial Theorem (Thm 3.3.4): }For any nonnegative integer $n$, and real numbers $x_1, \dots x_m$, we have $$(x_1 + \dots + x_m)^n = \sum_{k_1 + \dots k_m = n} \begin{pmatrix} n \\ k_1, \dots, k_m \end{pmatrix} x_1^{k_1} \cdot \dots \cdot x_m^{k_m}$$
+Note that $$\begin{pmatrix} n \\ k_1, \dots, k_m \end{pmatrix} := \frac{n!}{k_1! \cdot \dots \cdot k_m!}$$
+\clearpage
+
+\section{Lecture 8}
+\textbf{Def: }let $P = (X, \preceq)$ be an ordered set, and $A \subseteq X$. We say $A$ is a \emph{chain} if each two elements of $A$ are comparable, or equivalently, $A$ is a linearly ordered subset in $P$.
+
+\textbf{Def: }\emph{$\omega(P) := $} maximum number of elements of a chain in $P$
+
+\textbf{Thm 2.4.5: }\emph{let $P = (X, \preceq)$ be a finite ordered set. Then $\alpha(P) \times \omega(P) \geq |X|$}
+
+\textbf{Erdős–Szekeres theorem (Thm 2.4.6): }\emph{An arbitrary sequence $(x_1, \dots, x_{n^2 + 1})$ of real numbers contains a monotone sequence (either increasing or decreasing) of length $n + 1$}
+
+\textbf{Def: }a \emph{graph} $G = (V, E)$ is such that
+\begin{itemize}
+    \item \emph{V is some set (of vertices)}
+    \item \emph{E is a set of 2-subsets of V (called edges)}
+\end{itemize}
+
+\textbf{Def: }the \emph{complete graph $K_n$} is the graph with $n$ vertices and an edge between every vertex
+\begin{itemize}
+    \item \emph{if $\begin{pmatrix} V \\ 2 \end{pmatrix}$ := all 2-subsets of $V$, then $E = \begin{pmatrix} V \\ 2 \end{pmatrix}$}
+    \item \emph{$|E_n| = \begin{pmatrix} n \\ 2 \end{pmatrix} = \frac{n(n - 1)}{2} = \sum_{i = 1}^ni$}
+\end{itemize}
+
+\textbf{Def: }the \emph{cycle} $C_n$ is the graph $G = (V, E)$ such that
+\begin{itemize}
+    \item \emph{$V = \{ 1, \dots, n \}$}
+    \item \emph{$E = \{ \{ i, i + 1 \} : i \in \{ 1, \dots, n - 1 \} \} \cup \{ n, 1\}$}
+\end{itemize}
+
+\textbf{Def: }the \emph{path} $P_n$ is the graph $G = (V, E)$ such that
+\begin{itemize}
+    \item \emph{$V = \{ 0, \dots, n \}$}
+    \item \emph{$E = \{ \{ i - 1, i \} : i \in \{ 1, \dots, n\} \}$}
+\end{itemize}
+
+\textbf{Def: }the \emph{complete bipartite graph} $K_{n, m}$ is the graph $G = (V, E)$ such that
+\begin{itemize}
+    \item \emph{$V = \{ u_1, \dots, u_n \} \cup \{ v_1, \dots, v_m \}$}
+    \item \emph{$E = \{ \{ u_i, v_j \} : i \in \{ 1, \dots, n \} : j \in \{ 1, \dots, m \} \} $}
+\end{itemize}
+
+\textbf{Def (4.1.2): }two graphs $G = (V, E)$ and $G' = (V', E')$ are said to be \emph{isomorphic} if there exists a bijection $f: V \rightarrow V'$ such that
+\begin{itemize}
+    \item \emph{$\{ x, y \} \in E \Leftrightarrow \{ f(x), f(y) \} \in E'$ holds $\forall x, y \in V : x 
+    \neq y$}
+    \item \emph{if such a function exists, we say $f$ is an isomorphism}
+    \item \emph{this is denoted $G \cong G'$}
+\end{itemize}
+\clearpage
+
+\section{Lecture 9}
+
+\textbf{Def (4.2.1): }Let $G$ and $G'$ be graphs. We say
+\begin{itemize}
+    \item G is a \emph{subgraph} of $G'$ if $V(G) \subseteq V(G')$ and $E(G) \subseteq E(G')$
+    \item G is an \emph{induced subgraph} of $G'$ if $V(G) \subseteq V(G')$ and $E(G) = E(G') \cap \begin{pmatrix} V(G) \\ 2  \end{pmatrix}$
+\end{itemize}
+
+\textbf{Def: }Let $G = (V, E)$ be a graph. For a given vertex, its \emph{degree}, denoted as $deg_{G}(v)$ is the number of edges which contain it
+
+\textbf{Def: }We say a subgraph of a graph $G$ is a \emph{path} in $G$ if it is isomorphic to some path $P_{t}$
+
+\textbf{Def: }We say a subgraph of a graph $G$ is a \emph{cycle} in $G$ if it is isomorphic to some cycle $C_{t}$
+\clearpage
+
+\section{Lecture 10}
+\textbf{Def: }Let $G$ be a graph. We say $G$ is \emph{connected} if there exits a path between every two nodes $x, y \in V(G)$
+
+\textbf{Def: }We say $(v_0, e_1, v_1, \dots, e_t, v_t)$ is a walk of length t from $v_0$ to $v_t$ if \\ $e_i = \{ v_{i - 1}, v_i \} \in E\ \forall i \in \{ 1, \dots, t \}$ 
+
+\textbf{Def: }Let $G = (V, E)$ be a graph, and $x, y \in V$. We say $x \sim y$ if there exists a walk from $x$ to $y$. 
+\begin{itemize}
+    \item \emph{$\sim$ is an equivalence relation on the vertex set of $G$}
+\end{itemize}
+
+\textbf{Def: }The \emph{connected components} of a graph are the subgraphs induced by the equivalence classes of $\sim$. Equivalently, the equivalence classes of $\sim$ are all vertices which can be reached by that vertex, which is defined to be a \emph{connected component} of G.
+\begin{itemize}
+    \item \emph{The union of all connected components of a graph form the whole graph}
+\end{itemize}
+
+\textbf{Observation (4.2.2): }\emph{Each component of a graph is connected. A graph is connected iff it has a single component}
+
+\textbf{Def: }Let $G = (V, E)$ be a connected graph. Let $v, v' \in V$. The \emph{distance} $d_{G}(v, v')$ is defined to be the length of the shortest path between $v$ and $v'$.
+\begin{itemize}
+    \item \emph{We can define a distance function $d: V \times V \rightarrow \mathbb{N}$ by $(v, v') \mapsto d_{G}(v, v')$}
+    \item \emph{$d_{G}(v, v') \geq 0 : d_{G}(v, v') = 0 \Leftrightarrow v = v'$}
+    \item \emph{$\forall v, v' \in V(G) : d_{G}(v, v') = d_{G}(v', v)$}
+    \item \emph{$d_{G}(v, v'') \leq d_{G}(v, v') + d_{G}(v', v'')$}
+    \item \emph{$d_{G}(v, v') \in \mathbb{N} : \forall v, v' \in V(G)$}
+    \item \emph{$d_{G}(v, v'') \geq 1 \Rightarrow \exists v' \neq v \land v' \neq v'' : d_{G}(v, v'') = d_{G}(v, v') + d_{G}(v', v'')$}
+\end{itemize}
+
+\textbf{Def (4.2.3): }Let $G = (V, E)$ be a graph with $n$ vertices, such that $V = \{ v_1, \dots, v_n \}$. The \emph{adjacency matrix} is defined to be the matrix $A_{G}$ such that 
+$$a_{ij} =\left\{
+    \begin{array}{lr}
+    1 & : \{ v_i, v_j \} \in E\\
+    0 & : \{ v_i, v_j\} \notin E\\
+    \end{array}
+\right. $$
+\begin{itemize}
+    \item \emph{The resultant matrix will be square, and symmetric}
+\end{itemize}
+
+\clearpage
+
+\section{Lecture 11}
+\textbf{Proposition 4.2.4: }Let $G = (V, E)$, and $A = A_G$ be its adjacency matrix. Let $A^k$ denote the \emph{kth} power of the adjacency matrix. Then $a_{ij}^k$ denotes the number of distinct walks from $i$ to $j$ given $k$ steps
+
+\textbf{Corollary 4.2.5: }The distance of any two verticies $v_i$ and $v_j$ satisfies 
+$$d_G(v_i, v_j) = min(\{ k \geq 0 : a_{ij}^k \neq 0 \})$$
+
+\textbf{Def: }let $V(G) = \{ v_1, \dots, v_n \}$ be the vertex set of a graph. The \emph{degree sequence} or \emph{graph score} is the set $\{ deg(v_1), \dots, deg(v_n)\}$. Usually, this set will be rearranged in nondecreasing order
+
+\textbf{Proposition 4.3.1: }Let $G = (V, E)$ be a graph. Then
+$$\sum_{v \in V}deg_G(v) = 2|E|$$
+
+\textbf{Corollary 4.3.2: }the number of odd-degree vertices in any graph is even
+\clearpage
+
+\section{Lecture 12}
+\textbf{Thm (4.3.3): }Let $D = (d_1, \dots, d_n)$ be a sequence of (nondecreasing) natural numbers, and let $D' = (d_1', \dots, d_{n - 1}')$ where
+$$d_i' =\left\{
+    \begin{array}{lr}
+    d_i & : i < n - d_n\\
+    d_i - 1 & : i \geq n - d_n\\
+    \end{array}
+\right. $$
+Then $D$ is a graph score if and only if $D'$ is a graph score
+\begin{itemize}
+    \item \emph{apply iteratively until we have reduced the tuple to a manageable length}
+    \item \emph{sort tuple into nondecreasing order after each application}
+    \item \emph{apply corollary 4.3.2 to vet first}
+\end{itemize}
+
+\textbf{Def: }a \emph{$k-regular$} graph is a graph such that each vertex is of degree $k$
+
+\textbf{Def: }an \emph{Eulerian Tour} is a walk such that every vertex is contained and each edge is contained exactly once
+
+\textbf{Def: }a graph is \emph{Eulerian} if it has an Eulerian Tour
+
+\textbf{Def (4.4.1): }a graph $G$ is Eulerian iff 
+\begin{itemize}
+    \item \emph{$G$ is connected}
+    \item \emph{each vertex has even degree}
+\end{itemize}
+\clearpage
+
+\section{Lecture 13}
+\textbf{Def: }a \emph{multigraph} is an ordered pair $(V, m)$ where $V$ is a vertex set and \\$m: \begin{pmatrix} V \\ 2\end{pmatrix} \rightarrow \mathbb{N}$ is a function by $m(v_1, v_2) \mapsto$ \# edges between $v_1, v_2$
+
+\textbf{Def: }a \emph{directed graph} is defined as a pair $(V, E)$ where $E \subseteq V \times V$. Directed edges are defined as ordered pairs $(x, y) \in E$
+\begin{itemize}
+    \item \emph{$x$ is referred to as the head, while $y$ is referred to as the tail}
+\end{itemize}
+\clearpage
+
+\section{Lecture 14}
+
+\textbf{Def: }a \emph{directed tour} in a directed graph $G = (V, E)$ is a sequence $(v_0, e_1, \dots, e_m, v_m)$ such that $e_i = (v_{i - 1}, v_i) \in E\ \forall i \in \{ 0, \dots, m \}$ 
+
+\textbf{Def: }a directed graph is \emph{Eulerian} if it has a directed tour such that 
+\begin{itemize}
+    \item \emph{the directed tour contains all the vertices in $V$}
+    \item \emph{possesses each directed edge in $G$ (exactly once)}
+\end{itemize}
+
+\textbf{Def: }the \emph{in-degree} of a vertex $v$ in a directed graph is defined as the number of edges ending at $v$, denoted as $deg_G^+(v)$
+
+\textbf{Def: }the \emph{out-degree} of a vertex $v$ in a directed graph is defined as the number of edges starting at $v$, denoted as $deg_G^-(v)$
+
+\textbf{Def: }let $G = (V, E)$ be a directed graph. We can apply \emph{symmetrization} to $G$, producing the graph $sym(G) = (V, \bar{E})$, where $\bar{E} = \{ \{ x, y \} : (x, y) \in E \lor (y, x) \in E \}$
+\begin{itemize}
+    \item \emph{$sym(G)$ is called the symmetrization of $G$}
+\end{itemize}
+
+\textbf{Thm (4.5.2): }let $G$ be a directed graph. $G$ is Eulerian iff
+\begin{itemize}
+    \item \emph{$sym(G)$ is connected}
+    \item \emph{$\forall v \in V : deg_G^+(v) = deg_G^-(v)$}
+\end{itemize}
+\clearpage
+
+\section{Lecture 15}
+\textbf{Def: }a \emph{Hamiltonian path} (or \emph{Hamiltonian circuit}) is a path which passes through each vertex once (except for the endpoints)
+\begin{itemize}
+    \item \emph{it need not visit each edge}
+    \item \emph{no easy metric to determine if a graph is hamiltonian}
+\end{itemize}
+
+\textbf{Def: }a graph is \emph{Hamiltonian} if it has a Hamiltonian path
+
+\textbf{Ore's Thm: }let $G$ be an (undirected) graph with $n$ vertices such that $n \geq 3$. Suppose that for any two nonadjacent vertices in $V(G)$, the sum of their degrees is at least $n$. Then $G$ is Hamiltonian.
+\begin{itemize}
+    \item \emph{we cannot say $G$ is not Hamiltonian if it fails to fulfill this condition}
+\end{itemize}
+
+\textbf{Def: }let $G = (V, E)$ be any graph. We say it is
+\begin{itemize}
+    \item \emph{$k$-vertex-connected if it has at least $k + 1$ vertices, and it remains connected if we remove $k - 1$ vertices}
+    \item \emph{$k$-edge-connected if we get a connected graph when we delete $k - 1$ edges of $G$}
+\end{itemize}
+
+\textbf{Def: }the \emph{vertex connectivity} of $G$ is the maximum $k$ such that $G$ is $k$-vertex connected
+
+\textbf{Def: }the \emph{edge connectivity} of $G$ is the maximum $k$ such that $G$ is $k$-edge connected
+
+\textbf{Def (4.6.1): }let $G$ be a graph. We say it is \emph{2-connected} if
+\begin{itemize}
+    \item \emph{it has at least 3 vertices}
+    \item \emph{if, when we delete any single vertex, we (still) have a connected graph}
+\end{itemize}
+
+\textbf{Def (4.6.2): }Let $G = (V, E)$ be a graph. We define:
+\begin{itemize}
+    \item \emph{Edge deletion: $G - e := (V, E \setminus \{ e \})$} 
+    \item \emph{Edge addition: $G + e := (V, E \cup \{ e\})$}
+    \item \emph{Vertex deletion: $G - v := (V \setminus \{ v \}, \{ e \in E : v \notin e \})$}
+    \item \emph{Edge subdivision: $G \% e := (V \cup \{ z \}, (E \setminus \{ x, y \}) \cup \{ \{ x, z \}, \{ z, y\} \})$}
+\end{itemize}
+
+\textbf{Thm (4.6.3): }a graph is 2 connected iff there exists, for any two vertices of $G$, a cycle in $G$ containing these two variables
+
+\clearpage
+
+\section{Lecture 16}
+\textbf{Observation (4.6.4): }a graph $G$ is 2-connected iff any subdivision of it is 2-connected
+
+\textbf{Thm (4.6.5): }a graph is 2-connected iff it can be created from a triangle by a sequence of edge subdivisions and edge additions
+
+\clearpage
+
+\section{Lecture 17}
+\textbf{Def (5.1.1): }a \emph{tree} is a connected, acyclic graph
+
+\textbf{Thm (5.1.2): }let $G = (V, E)$ be a graph. The following are equivalent
+\begin{itemize}
+    \item \emph{G is a tree}
+    \item \emph{$\forall x, y \in V$ there exists a unique path from $x$ to $y$ in $G$}
+    \item \emph{the graph $G$ is connected, and deleting any $e \in E$ results in a disconnected graph}
+    \item \emph{the graph $G$ is acyclic, and any graph arising from adding an edge to $G$ contains a cycle}
+    \item \emph{$G$ is connected and $|V| = |E| + 1$}
+\end{itemize}
+
+\textbf{Def: }let $G = (V, E)$ be a graph and $v \in V$. If $deg_G(v) = 1$, we say that $v$ is an \emph{end vertex}, or \emph{leaf node} of $G$
+
+\textbf{Lemma (5.1.3): }\emph{each tree with at least two vertices contains at least two end vertices}
+
+\textbf{Lemma (5.1.4): }\emph{$G$ is a tree $\Leftrightarrow$ $G - v$ is a tree, where $v$ are the end vertices of $G$}
+
+\clearpage
+
+\section{Lecture 18}
+\textbf{Def: }we define a \emph{rooted tree} as a pair $(T, r)$ 
+\begin{itemize}
+    \item \emph{T is a tree}
+    \item \emph{$r \in V(T)$ is a distinguished vertex called the root}
+\end{itemize}
+
+\textbf{Def: }we define a \emph{planted tree} as a rooted tree and a drawing o $T$, and we mark the root by an arrow
+
+\textbf{Def: }let $T$ and $T'$ be trees. We say $f: V(T) \rightarrow V(T')$ is an \emph{isomorphism} of trees $T$ and $T'$ if 
+\begin{itemize}
+    \item \emph{f is a bijection}
+    \item \emph{$\{ x, y \} \in E(T) \Leftrightarrow \{ f(x), f(y) \} \in E(T')$}
+\end{itemize}
+If such a map exists we write $T \cong T'$
+
+\textbf{Def: }let $(T, r)$ and $(T', r')$ be rooted trees. We say $(T, r)$ and $(T', r')$ are isomorphic if there exists an isomorphism $f: V(T) \rightarrow V(T')$ such that $f(r) = r'$. If such a map exists, we write $(T, r) \cong' (T', r')$
+
+\textbf{Def: }an \emph{isomorphism of planted trees} is an isomorphism of rooted trees such that the isomorphism preserves the left to right ordering of the children of each vertex. If such an isomorphism exists, we write $(T, r, v) \cong'' (T', r', v')$
+
+\clearpage
+
+\section{Lecture 19}
+\textbf{Isomorphism Algorithm for Planted Trees}
+
+\textbf{K1: }Assign $01$ to each nonroot end vertex
+
+\textbf{K2: }Let $v$ be the parent of $v_1, \dots, v_t$. If $A_i$ is the code of the child $v_i$, the code of vertex $v$ is $0A_1 \dots A_t1$
+
+\textbf{Recovery: }Replace $0$ in the code with an up arrow, and $1$ with a down arrow. Then, write out the code, where up arrows generate a new vertex in the next level, and down arrows take us down to the previous vertex. 
+
+\textbf{Isomorphism Algorithm for Rooted Trees}
+
+\textbf{K1: }Assign $01$ to each nonroot end vertex
+
+\textbf{K2: }Let $v$ be the parent of $v_1, \dots, v_t$. If $A_i$ is the code of the child $v_i$, the code of vertex $v$ is $0A_1 \dots A_t1$, where $A_1 \leq \dots \leq A_t$, where we are using the lexographical ordering
+
+\emph{Lexographical ordering for binary strings is defined as followed: }
+\begin{itemize}
+    \item \emph{$A$ initial segment of $B \Rightarrow A < B$}
+    \item \emph{$B$ initial segment of $A \Rightarrow B < A$}
+    \item \emph{*else* let $j$ be the smallest index such that $a_j \neq b_j$}
+    \item \emph{$a_j < b_j \Rightarrow A < B$}
+    \item \emph{$b_j < a_j \Rightarrow B < A$}
+\end{itemize}
+
+\textbf{Recovery: }Replace $0$ in the code with an up arrow, and $1$ with a down arrow. Then, write out the code, where up arrows generate a new vertex in the next level, and down arrows take us down to the previous vertex. 
+
+\textbf{Def: }let $G = (V, E)$ be a graph, with $v \in V$. The \emph{eccentricity} of $v$, denoted as $ex_G(v)$ is the maximum distance between $v$ and any other vertex of $G$
+
+\textbf{Def: }let $G = (V, E)$ be a graph. We set $C(G)$, called the \emph{center of $G$} as the set of vertices of $G$ with minimum eccentricity
+
+\textbf{Proposition (5.2.1): }\emph{For any tree $T$, $C(T)$ has at most 2 vertices. If it has two vertices $v_1$ and $v_2$, then $\{ v_1, v_2 \}$ is an edge}\\
+
+
+\textbf{Isomorphism Algorithm for Trees}
+
+Two trees are isomorphic if and only if they have the same coding. The coding of $T$ is as follows
+\begin{itemize}
+    \item \emph{if $|C(T)| = 1$, then treat it as a rooted tree with $r \in C(T)$, and code appropriately}
+    \item \emph{if $|C(T)| = 2$, then consider $T - e$. This generates two disconnected rooted trees with codes $A$ and $B$. Pick the code with the smaller lexographical ordering}
+\end{itemize}
+\clearpage
+
+\section{Lecture 24}
+
+\textbf{Dual Graph Definition: }let $G = (V, E)$ be a topological planar graph. Let $F$ be the faces of that graph, and the function $\epsilon: E \rightarrow F^2$ to map an edge $e \in E$ to $\{ F_i, F_j \}$ the pair of faces $e$ delineates. The graph $(F, \epsilon(E))$ denotes the \emph{dual graph} of $G$
+
+\textbf{Graph Coloring Greedy Algorithm: }\\
+\textbf{K1: }pick a vertex and color it $1$\\
+\textbf{K2: }pick an uncolored vertex connected to our colored subgraph and use the lowest valid number to color it\\
+\textbf{K3: }repeat \textbf{K2} until all vertices are colored\\
+\emph{Note: to color faces, we can convert $G$ to its dual graph, apply coloring, and map back}
+
+\clearpage
+
+\section{Lecture 25}
+
+\textbf{Proposition (7.1.1): }suppose we have a triangular shaped graph partitioned into baby triangles. Label each corner of the big triangle 1, 2, and 3. The edges on the outside of this triangle between end nodes $(i, j)$ may only be labeled $i$ or $j$. Label the inner nodes whatever we want. Then, at least one baby triangle must have vertex numbering $123$. In fact, there must be an odd amount
+
+\textbf{Proposition (7.1.2): }suppose we have a rectangular board whose inside is triangulated. If two players attempt to play a game to traverse opposing diagonal nodes of the game board, a draw is impossible, in the sense that a player will always have a legal move
+
+\clearpage
+
+\section{Lecture 26}
+
+\textbf{Proposition (7.1.3): }let $f:[0, 1] \rightarrow [0, 1]$ be a continuous function. Then there exists a point $x \in [0, 1]$ such that $x = f(x)$
+
+\textbf{Proposition (7.1.4): }every continuous function $f: \Delta \rightarrow \Delta$ has a fixed point
+
+\clearpage
+
+
+\end{document}
